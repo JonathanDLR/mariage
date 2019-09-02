@@ -1,0 +1,7 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine On
+
+RewriteRule ^accueil$ http://localhost/mariage/index.php?action=accueil [L]
+RewriteRule ^informations$ http://localhost/mariage/index.php?action=informations [L]
+RewriteRule ^inscription$ http://localhost/mariage/index.php?action=inscription [L]
+RewriteRule ^deco$ http://localhost/mariage/index.php?action=deco [L]
