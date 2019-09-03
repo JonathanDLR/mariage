@@ -1,0 +1,91 @@
+/* TEMPLATE STYLE */
+html, body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: end;
+}
+
+/* INSCRIPTION STYLE */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+form {
+  display: grid;
+  grid-template-rows: [row1] 25% [row2] 25% [row3] 25%;
+  grid-template-columns: 80%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 40vh;
+}
+form div:not(:nth-child(4)) {
+  display: grid;
+  align-items: center;
+  grid-template-columns: [col1] 35% [col2] 65%;
+}
+form div:not(:nth-child(4)) input {
+  justify-self: center;
+}
+form div:not(:nth-child(4)) span {
+  justify-self: end;
+}
+form div:not(:nth-child(4)) span {
+  grid-column: 1;
+  line-height: 1.75em;
+}
+form div:not(:nth-child(4)) input {
+  grid-column: 2;
+  height: 3vh;
+  width: 80%;
+  margin-left: 4%;
+}
+form div:nth-child(1) {
+  grid-row: 1;
+}
+form div:nth-child(2) {
+  grid-row: 2;
+}
+form div:nth-child(3) {
+  grid-row: 3;
+}
+form div:nth-child(4) {
+  grid-row: 4;
+  display: flex;
+  justify-content: center;
+}
+form div:nth-child(4) input {
+  height: 4vh;
+  width: 20vw;
+}
+
+/*# sourceMappingURL=inscription_civil.css.map */

@@ -1,0 +1,95 @@
+@import 'template';
+
+/* INSCRIPTION STYLE */
+
+section {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+form {
+    display: grid;
+    grid-template-rows: [row1] 12.5% [row2] 12.5% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5%
+        [row8] 12.5%;
+    grid-template-columns: 80%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 40vh;
+
+    div:not(:nth-child(8)) {
+        display: grid;
+        align-items: center;
+        grid-template-columns: [col1] 35% [col2] 65%;
+
+        input {
+            justify-self: center;
+        }
+
+        span {
+            justify-self: end;
+        }
+
+        span {
+            grid-column: 1;
+            line-height: 1.75em;
+        }
+
+        input {
+            grid-column: 2;
+            height: 3vh;
+            width: 80%;
+            margin-left: 4%;
+        }
+    }
+
+    div:nth-child(1) {
+        grid-row: 1;
+    }
+
+    div:nth-child(2) {
+        grid-row: 2;
+    }
+
+    div:nth-child(3) {
+        grid-row: 3;
+    }
+
+    div:nth-child(4) {
+        grid-row: 4;
+    }
+
+    div:nth-child(5) {
+        grid-row: 5;
+    }
+
+    div:nth-child(6) {
+        grid-row: 6;
+    }
+
+    div:nth-child(7) {
+        grid-row: 7;
+    }
+
+    div:nth-child(8) {
+        grid-row: 8;
+        display: flex;
+        justify-content: center;
+
+        input {
+            height: 4vh;
+            width: 20vw;
+        }
+    }
+}
