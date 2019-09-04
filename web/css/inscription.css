@@ -100,4 +100,8 @@ form div:nth-child(8) input {
   width: 20vw;
 }
 
+#formOk {
+  height: 6vh;
+}
+
 /*# sourceMappingURL=inscription.css.map */

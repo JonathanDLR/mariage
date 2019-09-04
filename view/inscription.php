@@ -7,7 +7,7 @@ ob_start(); ?>
             <form>
                 <div>
                     <label for="mail">Votre adresse mail</label>
-                    <input type="text" id="mail" name="mail" placeholder="<?php echo $_SESSION['login']; ?>" />
+                    <input type="text" id="mail" name="mail" value="<?php echo $_SESSION['login']; ?>" />
                 </div>
                 <div>
                     <label for="presence">Vous serez présent</label>
@@ -39,10 +39,12 @@ ob_start(); ?>
                     </div>
                 <?php } ?>
                 <div>
-                    <input type="submit" value="Envoyer" />
+                    <input id="submit" type="submit" value="Envoyer" />
                 </div>
             </form>
         </article>
+
+        <div id="formOk"></div>
 
         <article>
             <a href="#">Modifier votre mot de passe</a>
