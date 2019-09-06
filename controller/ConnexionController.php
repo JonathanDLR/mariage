@@ -54,6 +54,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/ConnexionManager.php');
                 return;
               }
             }
+
+            echo 'OK';
       
             // session_cache_limiter('private'); // On passe le délai d'expiration de la session à 15 mn
             // session_cache_expire(15);
@@ -61,7 +63,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/ConnexionManager.php');
             $_SESSION['nom'] = $response['nom'];
             $_SESSION['login'] = $response['loginn'];
             $_SESSION['type'] = $response['type_invit'];
-            header('Location: accueil');
+            // header('Location: accueil');
             exit(); // RENVOI VERS LA PAGE INDEX
         }
     }

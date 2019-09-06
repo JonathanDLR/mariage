@@ -10,8 +10,10 @@ ob_start(); ?>
             <input type="password" id="mdp" name="mdp" />
         </div>
         <div>
-            <input type="submit" value="Connexion" />
+            <input id="submit" type="submit" value="Connexion" />
         </div>
     </form>
+
+    <div id="formOk"></div>
 <?php $contain = ob_get_clean();
 require($_SERVER['DOCUMENT_ROOT'].'/mariage/view/common/template.php'); ?>
