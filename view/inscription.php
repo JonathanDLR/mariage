@@ -7,7 +7,12 @@ ob_start(); ?>
             <form>
                 <div>
                     <label for="mail">Votre adresse mail</label>
-                    <input type="text" id="mail" name="mail" value="<?php echo $_SESSION['login']; ?>" />
+                    <input 
+                        type="text"
+                        id="mail"
+                        name="mail"
+                        data-id="<?php echo $_SESSION["id"]; ?>"
+                        value="<?php echo $_SESSION['login']; ?>" />
                 </div>
                 <div>
                     <label for="presence">Vous serez présent</label>

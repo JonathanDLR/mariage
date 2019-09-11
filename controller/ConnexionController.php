@@ -1,31 +1,31 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/ConnexionManager.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AbstractController.php');
 
 /**
- * CONTROLLER CONNEXION ESPACE MEMBRE
+ * Connexion Controller
  */
 
- class ConnexionController {
-    private $_connexionManager;
-
-    public function __construct() {
-        $this->_connexionManager = new ConnexionManager();
-    }
-
+ class ConnexionController extends AbstractController {
+   /**
+    * kill session when disconnect
+    */
     public function deconnexion() {
         session_start();
         session_destroy();
         header('Location: /mariage');
     }
     
+    /**
+     * check data and connect
+     */
     public function connect() {
         if (isset($_POST['login'])) {
             $login =  htmlspecialchars($_POST['login']); // HASH ET CONTROLE LOGIN MDP
             $password = htmlspecialchars($_POST['mdp']);
       
-            $response = $this->_connexionManager->connect($login); // RECUP LOGIN MDP DE LA BDD
-            $loginBdd = $response['loginn'];
-            $hashPassword = $response['mdp'];
+            $user = self::getManagerFactory()->getUserManager()->getUser($login); // RECUP LOGIN MDP DE LA BDD
+            $loginBdd = $user->getLogin();
+            $hashPassword = $user->getMdp();
       
             if (empty($login)) { // SI LOGIN VIDE ON RENVOI VERS LA PAGE ERREUR
               echo 'Veuillez renseigner votre login!';
@@ -60,9 +60,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/ConnexionManager.php');
             // session_cache_limiter('private'); // On passe le délai d'expiration de la session à 15 mn
             // session_cache_expire(15);
             session_start(); // ON CREE UNE SESSION AVEC LOGIN ET MDP
-            $_SESSION['nom'] = $response['nom'];
-            $_SESSION['login'] = $response['loginn'];
-            $_SESSION['type'] = $response['type_invit'];
+            $_SESSION['id'] = $user->getId();
+            $_SESSION['nom'] = $user->getNom();
+            $_SESSION['login'] = $user->getLogin();
+            $_SESSION['type'] = $user->getTypeInvit();
             // header('Location: accueil');
             exit(); // RENVOI VERS LA PAGE INDEX
         }
