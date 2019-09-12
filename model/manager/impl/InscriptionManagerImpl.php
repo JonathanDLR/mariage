@@ -47,28 +47,33 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
             $inscription = new Inscription();
             $inscription->setLogin($loginId);
             $inscription->setNbre($nbreParticipant);
-            $inscription>setInvit($invit);
+            $inscription->setInvit($invit);
             $inscription->setVegan($vegan);
             $inscription->setAllergie($allergie);
             $inscription->setLogement($logement);
+
+            return $inscription;
     }
 
     /**
      * Send inscription in db
      */
     public function sendInscription($inscription) {
-        self::getDaoFactory()->getInscriptionDao()->createInscriptionDb($inscription);
+        $response = self::getDaoFactory()->getInscriptionDao()->createInscriptionDb($inscription);
+        return $response;
     }
 
     public function updateInscription($inscription) {
-        self::getDaoFactory()->getInscriptionDao()->updateInscriptionDb($inscription);
+        $response = self::getDaoFactory()->getInscriptionDao()->updateInscriptionDb($inscription);
+        return $response;
     }
 
     /**
      * Deleting inscription
      */
     public function deleteInscription($login) {
-        self::getDaoFactory()->getInscriptionDao()->deleteInscriptionDb($login);
+        $response = self::getDaoFactory()->getInscriptionDao()->deleteInscriptionDb($login);
+        return $response;
     }
 }
 

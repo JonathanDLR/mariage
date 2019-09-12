@@ -26,6 +26,8 @@ class Router {
     public function route() {
         if (isset($_POST["login"])) {
             $this->_connexionController->connect();
+        } else if (isset($_POST["inscription"])) {
+            $this->_inscriptionController->sendInscription();
         } else if (isset($_GET["action"])) {
             switch($_GET["action"]) {
                 case "accueil":
@@ -37,18 +39,12 @@ class Router {
                 case "inscription":
                     $this->_inscriptionController->getInscription();
                     break;
-                case "deco":
-                    if (isset($_SESSION['nom'])) {
-                        $this->_connexionController->deconnexion();
-                        break;
-                    } else {
-                        echo "Vous n'etes pas connecté!";
-                        include('view/connexion.php');
-                        break;
-                    }
+                case "deco":                
+                    $this->_connexionController->deconnexion();
+                    break;
             }
         } else {
-            include("view/connexion.php");
+            $this->_connexionController->getConnexion();
         }      
     }
 }

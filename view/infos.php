@@ -12,11 +12,9 @@ ob_start();
             </article>
         <?php } ?>
 
-        <?php if ($_SESSION['type'] !== "laique") { ?>
-            <article>
-                <span>Infos Mairie</span>
-            <article>
-        <?php } ?>
+        <article>
+            <span>Infos Mairie</span>
+        <article>
     </section>
 <?php $contain = ob_get_clean();
 require($_SERVER['DOCUMENT_ROOT'].'/mariage/view/common/template.php'); ?>

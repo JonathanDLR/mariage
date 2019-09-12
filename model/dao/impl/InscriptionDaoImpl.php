@@ -35,12 +35,12 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
         $connection = self::getDaoFactory()->getConnection();
         $req = $connection->prepare('INSERT into inscription (login_id, nbre_participant, vegan, allergie,
             type_logement, type_invit) VALUES (:loginId, :nbreParticipant, :vegan, :allergie, :typeLogement, :typeInvit)');
-        $req->bindParam(':loginId', $pInscription.getLogin(), PDO::PARAM_INT);
-        $req->bindParam(':nbreParticipant', $pInscription.getNbre(), PDO::PARAM_INT);
-        $req->bindParam(':vegan', $pInscription.getVegan(), PDO::PARAM_BOOL);
-        $req->bindParam(':allergie', $pInscription.getAllergie(), PDO::PARAM_STR);
-        $req->bindParam(':typeLogement', $pInscription.getLogement(), PDO::PARAM_INT);
-        $req->bindParam(':typeInvit', $pInscription.getInvit(), PDO::PARAM_INT);
+        $req->bindValue(':loginId', $pInscription->getLogin(), PDO::PARAM_INT);
+        $req->bindValue(':nbreParticipant', $pInscription->getNbre(), PDO::PARAM_INT);
+        $req->bindValue(':vegan', $pInscription->getVegan(), PDO::PARAM_BOOL);
+        $req->bindValue(':allergie', $pInscription->getAllergie(), PDO::PARAM_STR);
+        $req->bindValue(':typeLogement', $pInscription->getLogement(), PDO::PARAM_INT);
+        $req->bindValue(':typeInvit', $pInscription->getInvit(), PDO::PARAM_INT);
         $req->execute();
 
         $response = "Votre inscription est bien prise en compte!";
@@ -59,12 +59,12 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
         $connection = self::getDaoFactory()->getConnection();
         $req = $connection->prepare('UPDATE inscription SET login_id = :loginId, nbre_participant = :nbreParticipant,
             vegan = :vegan, allergie = :allergie, type_logement = :typeLogement, type_invit = :typeInvit');
-        $req->bindParam(':loginId', $pInscription.getNom(), PDO::PARAM_INT);
-        $req->bindParam(':nbreParticipant', $pInscription.getNbre(), PDO::PARAM_INT);
-        $req->bindParam(':vegan', $pInscription.getVegan(), PDO::PARAM_BOOL);
-        $req->bindParam(':allergie', $pInscription.getAllergie(), PDO::PARAM_STR);
-        $req->bindParam(':typeLogement', $pInscription.getLogement(), PDO::PARAM_INT);
-        $req->bindParam(':typeInvit', $pInscription.getInvit(), PDO::PARAM_INT);
+        $req->bindValue(':loginId', $pInscription->getLogin(), PDO::PARAM_INT);
+        $req->bindValue(':nbreParticipant', $pInscription->getNbre(), PDO::PARAM_INT);
+        $req->bindValue(':vegan', $pInscription->getVegan(), PDO::PARAM_BOOL);
+        $req->bindValue(':allergie', $pInscription->getAllergie(), PDO::PARAM_STR);
+        $req->bindValue(':typeLogement', $pInscription->getLogement(), PDO::PARAM_INT);
+        $req->bindValue(':typeInvit', $pInscription->getInvit(), PDO::PARAM_INT);
         $req->execute();
 
         $response = "Votre inscription a bien été modifiée!";
@@ -82,6 +82,7 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
     try {
         $connection = self::getDaoFactory()->getConnection();
         $req = $connection->prepare('DELETE from inscription WHERE login_id = :loginId');
+        $req->bindParam(':loginId', $loginId, PDO::PARAM_INT);
         $req->execute();
 
         $response = "Votre inscription a été supprimée!";

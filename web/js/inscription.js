@@ -10,7 +10,6 @@ INSCRIPTION = {
         e.preventDefault();
 
         // GETTING DATA
-        var mail = document.getElementById("mail").value;
         var checkboxPresence = document.getElementById("presence").checked;
         if (checkboxPresence == true) {
             var presence = true;
@@ -32,28 +31,18 @@ INSCRIPTION = {
             var civil = false;
         }
         var logement = document.getElementById("logement").value;
-        var regexMail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        arrayChamp = ["mail", "nbre", "logement"];
+        arrayChamp = ["nbre", "logement"];
 
         // CHECKING DATA
-        if (mail == "") {
-            document.getElementById("formOk").innerText = "Vous devez renseigner votre mail!";
-            INSCRIPTION.styleElem("mail", "red", "red");  
-        } else if (!regexMail.test(mail)) {
-            document.getElementById("formOk").innerText = "Veuillez renseigner un email valide!";
-            INSCRIPTION.styleElem("mail", "red", "red");   
-        } else if (nbre == 0) {
+        if ((presence == true) && (nbre == 0)) {
             document.getElementById("formOk").innerText = "Veuillez renseigner un nombre valide!";
-            INSCRIPTION.styleElem("mail", "black", "black"); 
             INSCRIPTION.styleElem("nbre", "red", "red");
-        } else if (typeof allergie !== 'string') {
+        } else if ((presence == true) && (typeof allergie !== 'string')) {
             document.getElementById("formOk").innerText = "L'allergie doit être un texte!";
-            INSCRIPTION.styleElem("mail", "black", "black"); 
             INSCRIPTION.styleElem("nbre", "black", "black");
             INSCRIPTION.styleElem("allergie", "red", "red");
-        } else if (logement == "") {
+        } else if ((presence == true)  && (logement == "")) {
             document.getElementById("formOk").innerText = "Le logement doit être un texte!";
-            INSCRIPTION.styleElem("mail", "black", "black"); 
             INSCRIPTION.styleElem("nbre", "black", "black");
             INSCRIPTION.styleElem("allergie", "black", "black");
             INSCRIPTION.styleElem("logement", "red", "red");
@@ -61,9 +50,9 @@ INSCRIPTION = {
             // CREATING FORM DATA
             var myForm = new FormData();
             myForm.append("inscription", "inscription");
-            myForm.append("mail", mail);
             myForm.append("presence", presence);
             myForm.append("nbre", nbre);
+            myForm.append("vegan", vegan);
             myForm.append("allergie", allergie);
             myForm.append("civil", civil);
             myForm.append("logement", logement);
@@ -78,13 +67,11 @@ INSCRIPTION = {
                 if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
                     document.getElementById("formOk").innerText = xhr.responseText;
                     arrayChamp.forEach(function(elem) { // RESET DESIGN CHAMP
-                        document.getElementById(elem).value = "";
                         INSCRIPTION.styleElem(elem, "black", "black");  
                     });
                 } else {
-                    document.getElementById("formOk").innerText = "Erreur: " + xhr.responseText;
+                    document.getElementById("formOk").innerText = xhr.responseText;
                     arrayChamp.forEach(function(elem) { // RESET DESIGN CHAMP
-                        document.getElementById(elem).value = "";
                         INSCRIPTION.styleElem(elem, "black", "black"); 
                     });
                 }

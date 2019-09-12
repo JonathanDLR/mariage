@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AbstractController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/Inscription.php');
 
 /**
  * Inscription Controller
@@ -10,11 +11,12 @@ class InscriptionController extends AbstractController {
      */
     public function getInscription() {
         if (isset($_SESSION['nom'])) {
-            $inscription = self::getManagerFactory()->getInscriptionManager()->getInscription($_SESSION["nom"]);
-            if (is_array($inscription)) {
-                return $inscription;
-            }
+            $inscription = self::getManagerFactory()->getInscriptionManager()->getInscription($_SESSION["id"]);
             include("view/inscription.php");
+            var_dump($inscription);
+            if ($inscription instanceof Inscription) {
+                return $inscription;
+            }          
         } else {
             echo "Vous n'etes pas connecté!";
             include('view/connexion.php');
@@ -26,13 +28,20 @@ class InscriptionController extends AbstractController {
      */
     public function sendInscription() {
         if (isset($_SESSION["nom"])) {
-            $inscription = self::getManagerFactory()->getInscriptionManager()->getInscription($_SESSION["nom"]);
-            if ($_POST["presence"] == TRUE) {
-                $loginId = htmlspecialchars($_POST["mail"]);
+            // CHECK IF INSCRIPTION EXIST
+            $inscription = self::getManagerFactory()->getInscriptionManager()->getInscription($_SESSION["id"]);
+            $presenceString = htmlspecialchars($_POST["presence"]);
+            if ($presenceString == "true") {
+                $presence = TRUE;
+            } else {
+                $presence = FALSE;
+            }
+            // IF PRESENCE CHECKED, CONTROL OF DATA
+            if ($presence == TRUE) {
                 $nbre = htmlspecialchars($_POST["nbre"]);
                 $invit = 2;
-                if ($_SESSION["type"] == "laique") {
-                    $veganString = $_POST["vegan"];
+                if (($_SESSION["type"] == "laique") || ($_SESSION["type"] == "both")) {
+                    $veganString = htmlspecialchars($_POST["vegan"]);
                     if ($veganString == "true") {
                         $vegan = TRUE;
                     } else {
@@ -46,26 +55,30 @@ class InscriptionController extends AbstractController {
                     } else {
                         $invit = 1;
                     }
+                    // CREATING INSCRIPTION
                     $newInscription = self::getManagerFactory()->getInscriptionManager()->createInscription(
-                        $loginId, $nbre, $invit, $vegan, $allergie, $logement
+                        $_SESSION["id"], $nbre, $invit, $vegan, $allergie, $logement
                     );
                 } else {
                     $newInscription = self::getManagerFactory()->getInscriptionManager()->createInscription(
-                        $loginId, $nbre, $invit
+                        $_SESSION["id"], $nbre, $invit
                     );
                 }
-                if (is_array($inscription)) {
+                // CREATING OR UPDATE IN DB
+                if ($inscription instanceof Inscription) {
                    $response = self::getManagerFactory()->getInscriptionManager()->updateInscription($newInscription);
                 } else {
                     $response = self::getManagerFactory()->getInscriptionManager()->sendInscription($newInscription);
                 }
+                // IF PRESENCE NOT CHECKED, DELETING OR SENDING ERROR MSG
             } else {
-                if (is_array($inscription)) {
-                    $response = self::getManagerFactory()->getInscriptionManager()->deleteInscription($_SESSION["nom"]);
+                if ($inscription instanceof Inscription) {
+                    $response = self::getManagerFactory()->getInscriptionManager()->deleteInscription($_SESSION["id"]);
+                } else {
+                    $response = "Aucune inscription enregistrée!";
                 }
             }
-
-            return $response;
+            echo $response;
         } else {
             echo "Vous n'etes pas connecté!";
             include('view/connexion.php');

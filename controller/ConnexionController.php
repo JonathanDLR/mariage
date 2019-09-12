@@ -6,13 +6,22 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AbstractController.p
  */
 
  class ConnexionController extends AbstractController {
+   public function getConnexion() {
+    include('view/connexion.php');
+   }
+   
    /**
     * kill session when disconnect
     */
     public function deconnexion() {
-        session_start();
-        session_destroy();
-        header('Location: /mariage');
+        if(isset($_SESSION["nom"])) {
+          session_start();
+          session_destroy();
+          header('Location: /mariage');
+        } else {
+            echo "Vous n'etes pas connecté!";
+            include('view/connexion.php');
+        }    
     }
     
     /**

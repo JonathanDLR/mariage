@@ -1,45 +1,78 @@
 <?php $title="Jonathan & Marie: Inscription";
+require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/Inscription.php');
 ob_start(); ?>
     <section>
         <article>
             <span>Inscription <?php echo $_SESSION['nom'] . $_SESSION['type']; ?></span>
-
             <form>
                 <div>
-                    <label for="mail">Votre adresse mail</label>
-                    <input 
-                        type="text"
-                        id="mail"
-                        name="mail"
-                        data-id="<?php echo $_SESSION["id"]; ?>"
-                        value="<?php echo $_SESSION['login']; ?>" />
-                </div>
-                <div>
                     <label for="presence">Vous serez présent</label>
-                    <input type="checkbox" id="presence" name="presence" />
+                    <input type="checkbox" 
+                           id="presence"
+                           name="presence"
+                           <?php if ($inscription instanceof Inscription) {
+                               echo 'checked';
+                           } ?>
+                            />
                 </div>
                 <div>
                     <label for="nbre">Nombre de personne</label>
-                    <input type="number" id="nbre" name="nbre" />
+                    <input type="number"
+                           id="nbre"
+                           name="nbre"
+                           <?php if ($inscription instanceof Inscription) { ?>
+                            value="<?php echo $inscription->getNbre(); ?>"    
+                           <?php } ?> />
                 </div>
                 <?php if ($_SESSION['type'] !== "civil") { ?>
                     <div>
                         <label for="vegan">Vous souhaitez manger végétarien?</label>
-                        <input type="checkbox" id="vegan" name="vegan" />
+                        <input type="checkbox"
+                               id="vegan"
+                               name="vegan"
+                               <?php if ($inscription instanceof Inscription) {
+                                   if ($inscription->getVegan() == TRUE) {
+                                       echo 'checked';
+                                   }
+                               } ?> />
                     </div>
                     <div>
                         <label for="allergie">Vous avez des allergies?</label>
-                        <input type="text" id="allergie" name="allergie" />
+                        <input type="text"
+                               id="allergie"
+                               name="allergie"
+                               <?php if ($inscription instanceof Inscription) { ?>
+                                value="<?php echo $inscription->getAllergie(); ?>"
+                               <?php } ?> />
                     </div>
                     <div>
                         <label for="civil">Vous serez présent au mariage civil?</label>
-                        <input type="checkbox" id="civil" name="civil" />
+                        <input type="checkbox"
+                               id="civil"
+                               name="civil"
+                               <?php if ($inscription instanceof Inscription) {
+                                   if ($inscription->getInvit() == "3") {
+                                       echo "checked";
+                                   }
+                               } ?> />
                     </div>
                     <div>
                         <label for="logement">Gite ou Hotel?</label>
                         <select id="logement" name="logement">
-                            <option value=1>Gite</option>
-                            <option value=2>Hotel</option>
+                            <option value=1
+                                    <?php if ($inscription instanceof Inscription) {
+                                        if ($inscription->getLogement() == "1") {
+                                            echo "selected";
+                                        }
+                                    } ?>
+                            >Gite</option>
+                            <option value=2
+                                    <?php if ($inscription instanceof Inscription) {
+                                        if ($inscription->getLogement() == "2") {
+                                            echo "selected";
+                                        }
+                                    } ?>
+                                    >Hotel</option>
                         </select>
                     </div>
                 <?php } ?>

@@ -10,7 +10,6 @@ INSCRIPTION_CIVIL = {
         e.preventDefault();
 
         // GETTING DATA
-        var mail = document.getElementById("mail").value;
         var checkboxPresence = document.getElementById("presence").checked;
         if (checkboxPresence == true) {
             var presence = true;
@@ -18,25 +17,17 @@ INSCRIPTION_CIVIL = {
             var presence = false;
         }
         var nbre = document.getElementById("nbre").value;
-        var regexMail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        arrayChamp = ["mail", "nbre"];
+        arrayChamp = ["nbre"];
 
         // CHECKING DATA
-        if (mail == "") {
-            document.getElementById("formOk").innerText = "Vous devez renseigner votre mail!";
-            INSCRIPTION_CIVIL.styleElem("mail", "red", "red");  
-        } else if (!regexMail.test(mail)) {
-            document.getElementById("formOk").innerText = "Veuillez renseigner un email valide!";
-            INSCRIPTION_CIVIL.styleElem("mail", "red", "red");   
-        } else if (nbre == 0) {
+        if ((presence == true) && (nbre == 0)) {
             document.getElementById("formOk").innerText = "Veuillez renseigner un nombre!";
-            INSCRIPTION_CIVIL.styleElem("mail", "black", "black");   
+ 
             INSCRIPTION_CIVIL.styleElem("nbre", "red", "red");
         } else {
             // CREATING FORM DATA
             var myForm = new FormData();
             myForm.append("inscription", "inscription");
-            myForm.append("mail", mail);
             myForm.append("presence", presence);
             myForm.append("nbre", nbre);
 
@@ -50,13 +41,11 @@ INSCRIPTION_CIVIL = {
                 if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
                     document.getElementById("formOk").innerText = xhr.responseText;
                     arrayChamp.forEach(function(elem) { // RESET DESIGN CHAMP
-                        document.getElementById(elem).value = "";
                         INSCRIPTION_CIVIL.styleElem(elem, "black", "black");  
                     });
                 } else {
-                    document.getElementById("formOk").innerText = "Erreur: " + xhr.responseText;
+                    document.getElementById("formOk").innerText = xhr.responseText;
                     arrayChamp.forEach(function(elem) { // RESET DESIGN CHAMP
-                        document.getElementById(elem).value = "";
                         INSCRIPTION_CIVIL.styleElem(elem, "black", "black"); 
                     });
                 }
