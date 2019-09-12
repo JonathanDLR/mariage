@@ -13,7 +13,6 @@ class InscriptionController extends AbstractController {
         if (isset($_SESSION['nom'])) {
             $inscription = self::getManagerFactory()->getInscriptionManager()->getInscription($_SESSION["id"]);
             include("view/inscription.php");
-            var_dump($inscription);
             if ($inscription instanceof Inscription) {
                 return $inscription;
             }          

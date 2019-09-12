@@ -57,14 +57,14 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
   public function updateInscriptionDb(Inscription $pInscription) {
     try {
         $connection = self::getDaoFactory()->getConnection();
-        $req = $connection->prepare('UPDATE inscription SET login_id = :loginId, nbre_participant = :nbreParticipant,
-            vegan = :vegan, allergie = :allergie, type_logement = :typeLogement, type_invit = :typeInvit');
-        $req->bindValue(':loginId', $pInscription->getLogin(), PDO::PARAM_INT);
+        $req = $connection->prepare('UPDATE inscription SET nbre_participant = :nbreParticipant, vegan = :vegan,
+          allergie = :allergie, type_logement = :typeLogement, type_invit = :typeInvit WHERE login_id = :loginId');
         $req->bindValue(':nbreParticipant', $pInscription->getNbre(), PDO::PARAM_INT);
         $req->bindValue(':vegan', $pInscription->getVegan(), PDO::PARAM_BOOL);
         $req->bindValue(':allergie', $pInscription->getAllergie(), PDO::PARAM_STR);
         $req->bindValue(':typeLogement', $pInscription->getLogement(), PDO::PARAM_INT);
         $req->bindValue(':typeInvit', $pInscription->getInvit(), PDO::PARAM_INT);
+        $req->bindValue(':loginId', $pInscription->getLogin(), PDO::PARAM_INT);
         $req->execute();
 
         $response = "Votre inscription a bien été modifiée!";
