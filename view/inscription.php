@@ -35,6 +35,13 @@ ob_start(); ?>
                                        echo 'checked';
                                    }
                                } ?> />
+                        <label for="nbreVegan">Nombre de repas Vege?</label>
+                        <input type="number"
+                               id="nbreVegan"
+                               name="nbreVegan"
+                               <?php if ($inscription instanceof Inscription) { ?>
+                                value="<?php echo $inscription->getNbreVegan(); ?>"
+                               <?php } ?> />
                     </div>
                     <div>
                         <label for="allergie">Vous avez des allergies?</label>

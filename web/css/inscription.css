@@ -45,25 +45,25 @@ form {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 80%;
+  width: 90%;
   height: 40vh;
 }
-form div:not(:nth-child(8)) {
+form div:not(:nth-child(3)):not(:nth-child(8)) {
   display: grid;
   align-items: center;
   grid-template-columns: [col1] 35% [col2] 65%;
 }
-form div:not(:nth-child(8)) input {
+form div:not(:nth-child(3)):not(:nth-child(8)) input {
   justify-self: center;
 }
-form div:not(:nth-child(8)) span {
+form div:not(:nth-child(3)):not(:nth-child(8)) span {
   justify-self: end;
 }
-form div:not(:nth-child(8)) span {
+form div:not(:nth-child(3)):not(:nth-child(8)) span {
   grid-column: 1;
   line-height: 1.75em;
 }
-form div:not(:nth-child(8)) input {
+form div:not(:nth-child(3)):not(:nth-child(8)) input {
   grid-column: 2;
   height: 3vh;
   width: 80%;
@@ -77,6 +77,24 @@ form div:nth-child(2) {
 }
 form div:nth-child(3) {
   grid-row: 3;
+  display: grid;
+  align-items: center;
+  grid-template-columns: [col1] 28% [col2] 15% [col3] 28% [col4] 28%;
+  grid-template-rows: [row1] 100%;
+}
+form div:nth-child(3) input {
+  justify-self: center;
+}
+form div:nth-child(3) span {
+  justify-self: end;
+}
+form div:nth-child(3) span {
+  line-height: 1.75em;
+}
+form div:nth-child(3) input {
+  height: 3vh;
+  width: 80%;
+  margin-left: 4%;
 }
 form div:nth-child(4) {
   grid-row: 4;

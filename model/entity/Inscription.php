@@ -5,6 +5,7 @@ class Inscription {
     private $_login;
     private $_nbre;
     private $_vegan;
+    private $_nbreVegan;
     private $_allergie;
     private $_logement;
     private $_invit;
@@ -25,6 +26,10 @@ class Inscription {
 
     public function getVegan() {
         return $this->_vegan;
+    }
+
+    public function getNbreVegan() {
+        return $this->_nbreVegan;
     }
 
     public function getAllergie() {
@@ -55,6 +60,10 @@ class Inscription {
 
     public function setVegan($pVegan) {
         $this->_vegan = $pVegan;
+    }
+
+    public function setNbreVegan($pNbreVegan) {
+        $this->_nbreVegan = $pNbreVegan;
     }
 
     public function setAllergie($pAllergie) {

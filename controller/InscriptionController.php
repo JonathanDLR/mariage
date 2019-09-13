@@ -46,6 +46,7 @@ class InscriptionController extends AbstractController {
                     } else {
                         $vegan = FALSE;
                     }
+                    $nbreVegan = htmlspecialchars($_POST["nbreVegan"]);
                     $allergie = htmlspecialchars($_POST["allergie"]);
                     $civil = htmlspecialchars($_POST["civil"]);
                     $logement = htmlspecialchars($_POST["logement"]);
@@ -56,7 +57,7 @@ class InscriptionController extends AbstractController {
                     }
                     // CREATING INSCRIPTION
                     $newInscription = self::getManagerFactory()->getInscriptionManager()->createInscription(
-                        $_SESSION["id"], $nbre, $invit, $vegan, $allergie, $logement
+                        $_SESSION["id"], $nbre, $invit, $vegan, $nbreVegan, $allergie, $logement
                     );
                 } else {
                     $newInscription = self::getManagerFactory()->getInscriptionManager()->createInscription(

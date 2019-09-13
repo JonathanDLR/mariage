@@ -23,6 +23,7 @@ INSCRIPTION = {
         } else {
             var vegan = false;
         }
+        var nbreVegan = document.getElementById("nbreVegan").value;
         var allergie = document.getElementById("allergie").value;
         var checkboxCivil = document.getElementById("civil").checked;
         if (checkboxCivil == true) {
@@ -31,7 +32,7 @@ INSCRIPTION = {
             var civil = false;
         }
         var logement = document.getElementById("logement").value;
-        arrayChamp = ["nbre", "logement"];
+        arrayChamp = ["nbre", "nbreVegan", "logement"];
 
         // CHECKING DATA
         if ((presence == true) && (nbre == 0)) {
@@ -53,6 +54,7 @@ INSCRIPTION = {
             myForm.append("presence", presence);
             myForm.append("nbre", nbre);
             myForm.append("vegan", vegan);
+            myForm.append("nbreVegan", nbreVegan);
             myForm.append("allergie", allergie);
             myForm.append("civil", civil);
             myForm.append("logement", logement);

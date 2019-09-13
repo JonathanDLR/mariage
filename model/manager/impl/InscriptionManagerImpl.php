@@ -42,13 +42,14 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
     /**
      * Creating inscription
      */
-    public function createInscription($loginId, $nbreParticipant, $invit, $vegan = NULL, $allergie = NULL,
-        $logement = NULL) {
+    public function createInscription($loginId, $nbreParticipant, $invit, $vegan = NULL, $nbreVegan = NULL, 
+        $allergie = NULL, $logement = NULL) {
             $inscription = new Inscription();
             $inscription->setLogin($loginId);
             $inscription->setNbre($nbreParticipant);
             $inscription->setInvit($invit);
             $inscription->setVegan($vegan);
+            $inscription->setNbreVegan($nbreVegan);
             $inscription->setAllergie($allergie);
             $inscription->setLogement($logement);
 
