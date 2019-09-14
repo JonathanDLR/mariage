@@ -31,11 +31,17 @@ INSCRIPTION = {
         } else {
             var civil = false;
         }
+        var checkboxLendemain = document.getElementById("lendemain").checked;
+        if (checkboxLendemain == true) {
+            var lendemain = true;
+        } else {
+            var lendemain = false;
+        }
         var logement = document.getElementById("logement").value;
         arrayChamp = ["nbre", "nbreVegan", "logement"];
 
         // CHECKING DATA
-        if ((presence == true) && (nbre == 0)) {
+        if ((presence == true) && ((nbre <= 1) || (!Number.isInteger(nbre)))) {
             document.getElementById("formOk").innerText = "Veuillez renseigner un nombre valide!";
             INSCRIPTION.styleElem("nbre", "red", "red");
         } else if ((presence == true) && (typeof allergie !== 'string')) {
@@ -57,6 +63,7 @@ INSCRIPTION = {
             myForm.append("nbreVegan", nbreVegan);
             myForm.append("allergie", allergie);
             myForm.append("civil", civil);
+            myForm.append("lendemain", lendemain);
             myForm.append("logement", logement);
 
             // AJAX

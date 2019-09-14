@@ -30,6 +30,9 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
             if ($inscriptionDao["type_invit"] != null) {
                 $inscription->setInvit($inscriptionDao["type_invit"]);
             }
+            if ($inscriptionDao["repas_lendemain"] != null) {
+                $inscription->setLendemain($inscriptionDao["repas_lendemain"]);
+            }
 
             $response = $inscription;
         } else {
@@ -43,7 +46,7 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
      * Creating inscription
      */
     public function createInscription($loginId, $nbreParticipant, $invit, $vegan = NULL, $nbreVegan = NULL, 
-        $allergie = NULL, $logement = NULL) {
+        $allergie = NULL, $logement = NULL, $lendemain = NULL) {
             $inscription = new Inscription();
             $inscription->setLogin($loginId);
             $inscription->setNbre($nbreParticipant);
@@ -52,6 +55,7 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
             $inscription->setNbreVegan($nbreVegan);
             $inscription->setAllergie($allergie);
             $inscription->setLogement($logement);
+            $inscription->setLendemain($lendemain);
 
             return $inscription;
     }

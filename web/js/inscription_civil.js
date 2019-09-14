@@ -20,7 +20,7 @@ INSCRIPTION_CIVIL = {
         arrayChamp = ["nbre"];
 
         // CHECKING DATA
-        if ((presence == true) && (nbre == 0)) {
+        if ((presence == true) && ((nbre <= 1) || (!Number.isInteger(parseInt(nbre))))) {
             document.getElementById("formOk").innerText = "Veuillez renseigner un nombre!";
  
             INSCRIPTION_CIVIL.styleElem("nbre", "red", "red");

@@ -9,6 +9,7 @@ class Inscription {
     private $_allergie;
     private $_logement;
     private $_invit;
+    private $_lendemain;
 
     // GETTERS
     
@@ -44,6 +45,10 @@ class Inscription {
         return $this->_invit;
     }
 
+    public function getLendemain() {
+        return $this->_lendemain;
+    }
+
     // SETTERS
 
     public function setId($pId) {
@@ -76,6 +81,10 @@ class Inscription {
 
     public function setInvit($pInvit) {
         $this->_invit = $pInvit;
+    }
+
+    public function setLendemain($pLendemain) {
+        $this->_lendemain = $pLendemain;
     }
 }
 

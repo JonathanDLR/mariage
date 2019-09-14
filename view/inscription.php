@@ -20,6 +20,8 @@ ob_start(); ?>
                     <input type="number"
                            id="nbre"
                            name="nbre"
+                           min="1"
+                           step="1"
                            <?php if ($inscription instanceof Inscription) { ?>
                             value="<?php echo $inscription->getNbre(); ?>"    
                            <?php } ?> />
@@ -39,6 +41,8 @@ ob_start(); ?>
                         <input type="number"
                                id="nbreVegan"
                                name="nbreVegan"
+                               min="1"
+                               step="1"
                                <?php if ($inscription instanceof Inscription) { ?>
                                 value="<?php echo $inscription->getNbreVegan(); ?>"
                                <?php } ?> />
@@ -59,6 +63,18 @@ ob_start(); ?>
                                name="civil"
                                <?php if ($inscription instanceof Inscription) {
                                    if ($inscription->getInvit() == "3") {
+                                       echo "checked";
+                                   }
+                               } ?> />
+                    </div>
+                    <div>
+                        <label for="lendemain">Vous serez présent le lendemain?</label>
+                        <input type="checkbox"
+                               id="lendemain"
+                               name="lendemain"
+                               <?php if ($inscription instanceof Inscription) {
+                                   
+                                   if ($inscription->getLendemain() == "1") {
                                        echo "checked";
                                    }
                                } ?> />

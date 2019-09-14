@@ -9,6 +9,7 @@
             <?php break;
         } else { ?>
             <script src="web/js/inscription.js"></script>
+            <script src="web/js/vegan.js"></script>
             <?php break;
         }
     }

@@ -12,7 +12,12 @@ header {
   justify-content: center;
 }
 
-nav {
+#navMobile {
+  display: none;
+  justify-content: space-between;
+}
+
+#navDesk {
   display: flex;
   justify-content: space-evenly;
 }

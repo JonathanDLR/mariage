@@ -86,6 +86,10 @@ form {
             width: 80%;
             margin-left: 4%;
         }
+      
+        label[for=nbreVegan], #nbreVegan {
+            display: none;
+        }
     }
 
     div:nth-child(4) {
