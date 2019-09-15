@@ -5,6 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/ConnexionController.
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AccueilController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/InfosController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/InscriptionController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/ForgotpswdController.php');
 
 class Router {
     private $_daoFactory;
@@ -13,6 +14,7 @@ class Router {
     private $_accueilController;
     private $_infosController;
     private $_inscriptionController;
+    private $_forgotpswdController;
 
     public function __construct() {
         $this->_daoFactory = new DaoFactoryImpl();
@@ -21,6 +23,7 @@ class Router {
         $this->_accueilController = new AccueilController();
         $this->_infosController = new InfosController();
         $this->_inscriptionController = new InscriptionController($this->_managerFactory);
+        $this->_forgotpswdController = new ForgotpswdController($this->_managerFactory);
     }
 
     public function route() {
@@ -28,6 +31,8 @@ class Router {
             $this->_connexionController->connect();
         } else if (isset($_POST["inscription"])) {
             $this->_inscriptionController->sendInscription();
+        } else if (isset($_POST["reinit"])) {
+            $this->_forgotpswdController->sendMail();
         } else if (isset($_GET["action"])) {
             switch($_GET["action"]) {
                 case "accueil":
@@ -38,6 +43,9 @@ class Router {
                     break;
                 case "inscription":
                     $this->_inscriptionController->getInscription();
+                    break;
+                case "forgotpswd":
+                    $this->_forgotpswdController->getPswd();
                     break;
                 case "deco":                
                     $this->_connexionController->deconnexion();

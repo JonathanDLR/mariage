@@ -19,4 +19,7 @@
             <link rel="stylesheet" href="web/css/inscription.css">
             <?php break;
         }
+    case "Jonathan et Marie: Mot de Passe Oublié": ?>
+        <link rel="stylesheet" href="web/css/forgotpswd.css">
+        <?php break;
 } ?>

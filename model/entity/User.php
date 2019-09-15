@@ -6,14 +6,7 @@ class User {
     private $_login;
     private $_mdp;
     private $_typeInvit;
-
-    public function __construct($pId, $pNom, $pLogin, $pMdp, $pTypeInvit) {
-        $this->_id = $pId;
-        $this->_nom = $pNom;
-        $this->_login = $pLogin;
-        $this->_mdp = $pMdp;
-        $this->_typeInvit = $pTypeInvit;
-    }
+    private $_token;
 
     // GETTERS
     
@@ -35,5 +28,33 @@ class User {
 
     public function getTypeInvit() {
         return $this->_typeInvit;
+    }
+
+    public function getToken() {
+        return $this->_token;
+    }
+
+    // SETTERS
+    public function setId($pId) {
+        $this->_id = $pId;
+    }
+
+    public function setNom($pNom) {
+        $this->_nom = $pNom;
+    }
+
+    public function setLogin($pLogin) {
+        $this->_login = $pLogin;
+    }
+    public function setMdp($pMdp) {
+        $this->_mdp = $pMdp;
+    }
+    
+    public function setTypeInvit($pTypeInvit) {
+        $this->_typeInvit = $pTypeInvit;
+    }
+
+    public function setToken($pToken) {
+        $this->_token = $pToken;
     }
 }

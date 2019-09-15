@@ -108,7 +108,7 @@ ob_start(); ?>
         <div id="formOk"></div>
 
         <article>
-            <a href="#">Modifier votre mot de passe</a>
+            <a href="forgotpswd">Modifier votre mot de passe</a>
         </article>
     </section>
 <?php $contain = ob_get_clean();

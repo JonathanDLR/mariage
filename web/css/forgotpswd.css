@@ -1,0 +1,83 @@
+/* TEMPLATE STYLE */
+html, body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: center;
+}
+
+#navMobile {
+  display: none;
+  justify-content: space-between;
+}
+
+#navDesk {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: end;
+}
+
+/* FORGOTPSWD STYLE */
+section {
+  display: grid;
+  grid-template-rows: [row1] 33.3% [row2] 33.3% [row3] 33.3%;
+  grid-template-columns: 80%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: 40vh;
+}
+section div:not(:nth-child(3)) {
+  display: grid;
+  align-items: center;
+  grid-template-columns: [col1] 35% [col2] 65%;
+}
+section div:not(:nth-child(3)) input {
+  justify-self: center;
+}
+section div:not(:nth-child(3)) span {
+  justify-self: end;
+}
+section div:not(:nth-child(3)) span {
+  grid-column: 1;
+  line-height: 1.75em;
+}
+section div:not(:nth-child(3)) input {
+  grid-column: 2;
+  height: 3vh;
+  width: 80%;
+  margin-left: 4%;
+}
+section div:nth-child(1) {
+  grid-row: 1;
+}
+section div:nth-child(2) {
+  grid-row: 2;
+}
+section div:nth-child(3) {
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+}
+section div:nth-child(3) input {
+  height: 4vh;
+  width: 20vw;
+}
+
+#formOk {
+  height: 6vh;
+}
+
+/*# sourceMappingURL=forgotpswd.css.map */
