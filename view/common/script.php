@@ -12,5 +12,8 @@
             <script src="web/js/vegan.js"></script>
             <?php break;
         }
+        case "Jonathan et Marie: Mot de Passe Oublié": ?>
+            <script src="web/js/forgotpswd.js"></script>
+            <?php break;
     }
 ?>

@@ -41,7 +41,7 @@ INSCRIPTION = {
         arrayChamp = ["nbre", "nbreVegan", "logement"];
 
         // CHECKING DATA
-        if ((presence == true) && ((nbre <= 1) || (!Number.isInteger(nbre)))) {
+        if ((presence == true) && ((nbre <= 1) || (!Number.isInteger(parseInt(nbre))))) {
             document.getElementById("formOk").innerText = "Veuillez renseigner un nombre valide!";
             INSCRIPTION.styleElem("nbre", "red", "red");
         } else if ((presence == true) && (typeof allergie !== 'string')) {

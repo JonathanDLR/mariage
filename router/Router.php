@@ -31,7 +31,7 @@ class Router {
             $this->_connexionController->connect();
         } else if (isset($_POST["inscription"])) {
             $this->_inscriptionController->sendInscription();
-        } else if (isset($_POST["reinit"])) {
+        } else if (isset($_POST["callreinit"])) {
             $this->_forgotpswdController->sendMail();
         } else if (isset($_GET["action"])) {
             switch($_GET["action"]) {

@@ -21,10 +21,21 @@ class ForgotpswdController extends AbstractController {
     public function sendmail() {
         if (isset($_SESSION["nom"])) {
             $login = htmlspecialchars($_POST["mail"]);
-            $user = self::getManagerFactory()->getUserManager()->getUser($login);
-            $response = self::getManagerFactory()->getUserManager()->sendMail($user);
+            $loginConf = htmlspecialchars($_POST["mailConf"]);
+            if ($login == "") {
+                echo "Veuillez renseigner votre mail.";
+            } else if ($loginConf == "") {
+                echo "Veuillez confirmer votre mail.";
+            } else if ($login != $loginConf) {
+                echo "Les mails ne sont pas identiques.";
+            } else if (filter_var($login, FILTER_VALIDATE_EMAIL)) {
+                $user = self::getManagerFactory()->getUserManager()->getUser($login);
+                $response = self::getManagerFactory()->getUserManager()->sendMail($user);
 
-            echo $response;
+                echo $response;
+            } else {
+                echo "Mail non valide";
+            }
         } else {
             echo "Vous n'etes pas connecté!";
             include('view/connexion.php');

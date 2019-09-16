@@ -50,7 +50,7 @@ class UserManagerImpl extends AbstractManagerImpl implements UserManager {
                 "Pour effectuer cette action veuillez cliquer sur le lien ci dessous ou copier/coller dans votre navigateur internet."."\r\n"."\r\n".
                 "localhost/mariage/index.php?reinit=".urlencode($user->getNom())."&token=".urlencode($user->getToken())."\r\n"."\r\n".
                 "Si vous n'etes pas à l'origine de cette demande, veuillez ne pas tenir compte de ce mail."."\r\n"."\r\n".
-                "Le Provence";
+                "Jonathan et Marie";
 
         $headers = 'Reply-To:'."Mariage Jonathan et Marie"."\r\n".
                 'Content-Type: text/plain; charset="UTF-8"; DelSp="Yes"; format=flowed'."\r\n".

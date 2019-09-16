@@ -6,7 +6,7 @@ Interface UserDao
     public function getDbUser($login);
     public function setTokenInvite(User $user);
     public function checkInviteDb($nom, $token);
-    public function reinitPswd($mdp, $login, $token);
+    public function reinitPswd(User $user);
 }
 
 ?>
