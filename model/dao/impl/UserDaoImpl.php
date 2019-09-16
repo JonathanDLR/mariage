@@ -59,7 +59,7 @@ class UserDaoImpl extends AbstractDaoImpl implements UserDao {
           $req->execute();
           $response = $req->fetchALL(PDO::FETCH_ASSOC);
       } catch (PDOException $e) {
-          $response = "Erreur:" . $e->getMessage();
+          $response = "Erreur: " . $e->getMessage();
       }
       return $response;
   }

@@ -26,10 +26,20 @@ class UserManagerImpl extends AbstractManagerImpl implements UserManager {
      * Get User by Nom and Token
      */
     public function checkUser($nom, $token) {
-        $userDao = self::getDaoFactory()->getUserDao()->checkUser($nom, $token);
-        $newUser = new User();
+        $userDao = self::getDaoFactory()->getUserDao()->checkInviteDb($nom, $token);
+ 
+        if (sizeof($userDao) != 0) {
+            $response = new User();
+            $response->setId($userDao[0]["id"]);
+            $response->setNom($userDao[0]["nom"]);
+            $response->setLogin($userDao[0]["loginn"]);
+            $response->setMdp($userDao[0]["mdp"]);
+            $response->setTypeInvit($userDao[0]["type_invit"]);
+        } else {
+            $response = "KO";
+        }
 
-        return $newUser;
+        return $response;
     }
 
     /**
@@ -48,7 +58,7 @@ class UserManagerImpl extends AbstractManagerImpl implements UserManager {
         $message = "Bonjour " . $user->getNom() ."\r\n"."\r\n".
                 "Cet email vous est envoyé car vous avez demandé à réinitialiser votre mot de passe"."\r\n"."\r\n".
                 "Pour effectuer cette action veuillez cliquer sur le lien ci dessous ou copier/coller dans votre navigateur internet."."\r\n"."\r\n".
-                "localhost/mariage/index.php?reinit=".urlencode($user->getNom())."&token=".urlencode($user->getToken())."\r\n"."\r\n".
+                "localhost/mariage/index.php?action=reinit&nom=".urlencode($user->getNom())."&token=".urlencode($user->getToken())."\r\n"."\r\n".
                 "Si vous n'etes pas à l'origine de cette demande, veuillez ne pas tenir compte de ce mail."."\r\n"."\r\n".
                 "Jonathan et Marie";
 
