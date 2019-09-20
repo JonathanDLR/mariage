@@ -7,12 +7,7 @@ class ForgotpswdController extends AbstractController {
      * get the view
      */
     public function getPswd() {
-        if (isset($_SESSION['nom'])) {
-            include("view/forgotpswd.php");
-        } else {
-            echo "Vous n'etes pas connecté!";
-            include('view/connexion.php');
-        }
+        include("view/forgotpswd.php");   
     }
 
     /**

@@ -35,6 +35,7 @@ class UserManagerImpl extends AbstractManagerImpl implements UserManager {
             $response->setLogin($userDao[0]["loginn"]);
             $response->setMdp($userDao[0]["mdp"]);
             $response->setTypeInvit($userDao[0]["type_invit"]);
+            $response->setToken($userDao[0]["token_val"]);
         } else {
             $response = "KO";
         }

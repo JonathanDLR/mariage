@@ -15,5 +15,8 @@
         case "Jonathan et Marie: Mot de Passe Oublié": ?>
             <script src="web/js/forgotpswd.js"></script>
             <?php break;
+        case "Jonathan et Marie: Réinitialisation Mot de Passe": ?>
+            <script src="web/js/reinitialisation.js"></script>
+            <?php break;
     }
 ?>

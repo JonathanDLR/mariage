@@ -1,22 +1,22 @@
-<?php $title = "Réinitialisation Mot de Passe";
+<?php $title = "Jonathan et Marie: Réinitialisation Mot de Passe";
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/User.php');
 
 ob_start(); ?>
     <?php if ($user instanceof User) { ?>
         <h1>Réinitialisation de Votre Mot de Passe</h1>
-        <div id="DIVmdp">
+        <section id="DIVmdp">
             <div><span>Votre Mot de Passe:</span><input type="password" id="mdp"></div>
             <div><span>Confirmation:</span><input type="password" id="mdpConf"></div>
             <div><input type="button" value="Réinitialiser" id="submit"></div>
-        </div>
+    </section>
 
 
         <div id="formOk"></div>
     <?php } else { ?>
         <h1>Réinitialisation de Votre Mot de Passe</h1>
-        <div id="DIVmdp">
+        <section id="DIVmdp">
             Aucune demande de réinitialisation n'a été trouvé pour ce compte.
-        </div>
+    </section>
     <?php } ?>
  
 <?php $contain = ob_get_clean();

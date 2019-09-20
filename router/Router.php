@@ -36,7 +36,10 @@ class Router {
             $this->_inscriptionController->sendInscription();
         } else if (isset($_POST["callreinit"])) {
             $this->_forgotpswdController->sendMail();
-        } else if (isset($_GET["action"])) {
+        } else if (isset($_POST["reinit"])) {
+            $this->_reinitialisationController->change();
+        }
+        else if (isset($_GET["action"])) {
             switch($_GET["action"]) {
                 case "accueil":
                     $this->_accueilController->getAccueil();

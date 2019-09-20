@@ -3,8 +3,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/Inscription.php');
 ob_start(); ?>
     <section>
         <article>
-            <span>Inscription <?php echo $_SESSION['nom'] . $_SESSION['type']; ?></span>
-            <form>
+            <h2>Inscription <?php echo $_SESSION['nom'] . $_SESSION['type']; ?></h2>
+            <form id="formIns">
                 <div>
                     <label for="presence">Vous serez présent</label>
                     <input type="checkbox" 
@@ -105,11 +105,30 @@ ob_start(); ?>
             </form>
         </article>
 
-        <div id="formOk"></div>
+        <div id="formOk" class="formOk"></div>
 
+        <h2>Modifier votre mot de passe</h2>
         <article>
-            <a href="forgotpswd">Modifier votre mot de passe</a>
+            <form id="formMdp">
+                <div>
+                    <label for="mdp">Mot de passe actuel</label>
+                    <input type="password" name="mdp" id="mdp" />
+                </div>
+                <div>
+                    <label for="newMdp">Nouveau mot de passe</label>
+                    <input type="password" name="newMdp" id="newMdp" />
+                </div>
+                <div>
+                    <label for="newMdpConf">Confirmez votre nouveau mot de passe</label>
+                    <input type="password" name="newMdpConf" id="newMdpConf" />
+                </div>
+                <div>
+                    <input type="submit" id="submitMdp" value="Modifier" />
+                </div>
         </article>
+
+        <div id="formOkMdp" class="formOk"></div>
+
     </section>
 <?php $contain = ob_get_clean();
 require($_SERVER['DOCUMENT_ROOT'].'/mariage/view/common/template.php'); ?>

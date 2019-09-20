@@ -1,15 +1,15 @@
 @import 'template';
 
-/* CONNEXION STYLE */
+/* Reinitialisation style */
 
-form {
+section  {
     display: grid;
-    grid-template-rows: [row1] 33% [row2] 33% [row3] 33%;
+    grid-template-rows: [row1] 33.3% [row2] 33.3% [row3] 33.3%;
     grid-template-columns: 80%;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
+    width: 90%;
     height: 40vh;
 
     div:not(:nth-child(3)) {
@@ -60,9 +60,4 @@ form {
 
 #formOk {
     height: 6vh;
-}
-
-article {
-    display: flex;
-    justify-content: center;
 }

@@ -65,7 +65,7 @@ class UserDaoImpl extends AbstractDaoImpl implements UserDao {
   }
 
   /**
-   * UPDATE PSWD
+   * UPDATE PSWD: FORGOT
    */
   public function reinitPswd(User $user) {
       try {

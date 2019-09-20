@@ -28,50 +28,50 @@ footer {
   justify-content: end;
 }
 
-/* CONNEXION STYLE */
-form {
+/* Reinitialisation style */
+section {
   display: grid;
-  grid-template-rows: [row1] 33% [row2] 33% [row3] 33%;
+  grid-template-rows: [row1] 33.3% [row2] 33.3% [row3] 33.3%;
   grid-template-columns: 80%;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 80%;
+  width: 90%;
   height: 40vh;
 }
-form div:not(:nth-child(3)) {
+section div:not(:nth-child(3)) {
   display: grid;
   align-items: center;
   grid-template-columns: [col1] 35% [col2] 65%;
 }
-form div:not(:nth-child(3)) input {
+section div:not(:nth-child(3)) input {
   justify-self: center;
 }
-form div:not(:nth-child(3)) span {
+section div:not(:nth-child(3)) span {
   justify-self: end;
 }
-form div:not(:nth-child(3)) span {
+section div:not(:nth-child(3)) span {
   grid-column: 1;
   line-height: 1.75em;
 }
-form div:not(:nth-child(3)) input {
+section div:not(:nth-child(3)) input {
   grid-column: 2;
   height: 3vh;
   width: 80%;
   margin-left: 4%;
 }
-form div:nth-child(1) {
+section div:nth-child(1) {
   grid-row: 1;
 }
-form div:nth-child(2) {
+section div:nth-child(2) {
   grid-row: 2;
 }
-form div:nth-child(3) {
+section div:nth-child(3) {
   grid-row: 3;
   display: flex;
   justify-content: center;
 }
-form div:nth-child(3) input {
+section div:nth-child(3) input {
   height: 4vh;
   width: 20vw;
 }
@@ -80,9 +80,4 @@ form div:nth-child(3) input {
   height: 6vh;
 }
 
-article {
-  display: flex;
-  justify-content: center;
-}
-
-/*# sourceMappingURL=connexion.css.map */
+/*# sourceMappingURL=reinitialisation.css.map */

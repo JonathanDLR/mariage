@@ -22,4 +22,7 @@
     case "Jonathan et Marie: Mot de Passe Oublié": ?>
         <link rel="stylesheet" href="web/css/forgotpswd.css">
         <?php break;
+    case "Jonathan et Marie: Réinitialisation Mot de Passe" : ?>
+        <link rel="stylesheet" href="web/css/reinitialisation.css">
+        <?php break;
 } ?>
