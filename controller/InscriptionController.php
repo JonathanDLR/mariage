@@ -1,6 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AbstractController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/Inscription.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/User.php');
 
 /**
  * Inscription Controller
@@ -90,6 +91,41 @@ class InscriptionController extends AbstractController {
             echo "Vous n'etes pas connecté!";
             include('view/connexion.php');
         }
+    }
+
+    /**
+     * Change password
+     */
+    public function changePswd() {
+        if (isset ($_SESSION["login"])) {
+            $login = $_SESSION['login'];
+            $mdp = htmlspecialchars($_POST["mdp"]);
+            $newMdp = htmlspecialchars($_POST["newMdp"]);
+            $newMdpConf = htmlspecialchars($_POST["newMdpConf"]);
+            $user = self::getManagerFactory()->getUserManager()->getUser($login);
+
+            if (!password_verify($mdp, $user->getMdp())) {
+                $response = "Le mot de passe actuel est incorrect";
+            } else {
+                if ($mdp == "") {
+                    $response = "Veuillez renseigner votre mot de passe";
+                } else if ($newMdp == "") {
+                    $response = "Veuillez renseigner votre nouveau mot de passe";
+                } else if (!preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})#", $newMdp)) {
+                    $response = "Votre mot de passe doit contenir au minimum une lettre minuscule, une lettre majuscule, un chiffre et 6 caractères.";
+                } else if ($newMdp != $newMdpConf) {
+                    $response = "Les mots de passe ne sont pas identiques";
+                } else {
+                    $response = self::getManagerFactory()->getUserManager()->changePswd($user, $newMdp);
+                }
+            }
+            
+
+            echo $response;
+        } else {
+            echo "Vous n'etes pas connecté!";
+            include('view/connexion.php');
+        }       
     }
 }
 

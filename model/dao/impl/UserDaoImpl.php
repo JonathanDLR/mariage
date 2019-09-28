@@ -13,10 +13,12 @@ class UserDaoImpl extends AbstractDaoImpl implements UserDao {
    */
   public function getDbUser($login) {
     try {
+      $sql = "SELECT invite.id, nom, loginn, mdp, invitation.typee as type_invit FROM
+      invite JOIN invitation ON invite.type_invit = invitation.id WHERE loginn = :loginn";
       $connection = self::getDaoFactory()->getConnection();
-      $req = $connection->prepare('SELECT invite.id, nom, loginn, mdp, invitation.typee as type_invit FROM
-        invite JOIN invitation ON invite.type_invit = invitation.id WHERE loginn = :loginn');
+      $req = $connection->prepare(''. $sql .'');
       $req->bindParam(':loginn', $login, PDO::PARAM_STR);
+
       $req->execute();
   
       $response = $req->fetch(PDO::FETCH_ASSOC);
@@ -69,20 +71,26 @@ class UserDaoImpl extends AbstractDaoImpl implements UserDao {
    */
   public function reinitPswd(User $user) {
       try {
-          $connection = self::getDaoFactory()->getConnection();
-          $req = $connection->prepare('UPDATE invite SET mdp = :mdp WHERE nom = :nom AND 
-              token_val = :token');
-          $req->bindValue(':mdp', $user->getMdp(), PDO::PARAM_STR);
-          $req->bindValue(':nom', $user->getNom(), PDO::PARAM_STR);
+        $sql = "UPDATE invite SET mdp = :mdp WHERE nom = :nom ";
+        if ($user->getToken() != NULL) {
+          $sql .= "AND token_val = :token";
+        }
+        $connection = self::getDaoFactory()->getConnection();
+        $req = $connection->prepare(''. $sql .'');
+        $req->bindValue(':mdp', $user->getMdp(), PDO::PARAM_STR);
+        $req->bindValue(':nom', $user->getNom(), PDO::PARAM_STR);
+        if ($user->getToken() != NULL) {
           $req->bindValue(':token', $user->getToken(), PDO::PARAM_STR);
-          $req->execute();
+        }
           
-          $response = "Votre mot de passe a été réinitialisé";
+        $req->execute();
+          
+        $response = "Votre mot de passe a été modifié";
       } catch (PDOException $e) {
           $response = "Erreur:" . $e->getMessage();
       }
 
-      return $response;
+    return $response;
   }
 }
 ?>

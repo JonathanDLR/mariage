@@ -38,6 +38,8 @@ class Router {
             $this->_forgotpswdController->sendMail();
         } else if (isset($_POST["reinit"])) {
             $this->_reinitialisationController->change();
+        } else if (isset($_POST["changepswd"])) {
+            $this->_inscriptionController->changePswd();
         }
         else if (isset($_GET["action"])) {
             switch($_GET["action"]) {
