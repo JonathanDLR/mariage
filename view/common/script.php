@@ -10,6 +10,7 @@
         } else { ?>
             <script src="web/js/inscription.js"></script>
             <script src="web/js/vegan.js"></script>
+            <script src="web/js/changepswd.js"></script>
             <?php break;
         }
         case "Jonathan et Marie: Mot de Passe Oublié": ?>
