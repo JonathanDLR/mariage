@@ -73,6 +73,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AbstractController.p
             $_SESSION['nom'] = $user->getNom();
             $_SESSION['login'] = $user->getLogin();
             $_SESSION['type'] = $user->getTypeInvit();
+            $_SESSION['loge'] = $user->getLoge();
             // header('Location: accueil');
             exit(); // RENVOI VERS LA PAGE INDEX
         }

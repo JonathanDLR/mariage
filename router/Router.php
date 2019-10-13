@@ -4,6 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/manager/impl/ManagerFacto
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/ConnexionController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AccueilController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/InfosController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/HebergementsController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/InscriptionController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/ForgotpswdController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/ReinitialisationController.php');
@@ -14,6 +15,7 @@ class Router {
     private $_connexionController;
     private $_accueilController;
     private $_infosController;
+    private $_hebergementsController;
     private $_inscriptionController;
     private $_forgotpswdController;
     private $_reinitialisationController;
@@ -24,6 +26,7 @@ class Router {
         $this->_connexionController = new ConnexionController($this->_managerFactory);
         $this->_accueilController = new AccueilController();
         $this->_infosController = new InfosController();
+        $this->_hebergementsController = new HebergementsController();
         $this->_inscriptionController = new InscriptionController($this->_managerFactory);
         $this->_forgotpswdController = new ForgotpswdController($this->_managerFactory);
         $this->_reinitialisationController = new ReinitialisationController($this->_managerFactory);
@@ -48,6 +51,9 @@ class Router {
                     break;  
                 case "informations":
                     $this->_infosController->getInfos();
+                    break;
+                case "hebergements":
+                    $this->_hebergementsController->getHebergements();
                     break;
                 case "inscription":
                     $this->_inscriptionController->getInscription();

@@ -6,6 +6,7 @@ class User {
     private $_login;
     private $_mdp;
     private $_typeInvit;
+    private $_loge;
     private $_token;
 
     // GETTERS
@@ -30,6 +31,10 @@ class User {
         return $this->_typeInvit;
     }
 
+    public function getLoge() {
+        return $this->_loge;
+    }
+
     public function getToken() {
         return $this->_token;
     }
@@ -52,6 +57,10 @@ class User {
     
     public function setTypeInvit($pTypeInvit) {
         $this->_typeInvit = $pTypeInvit;
+    }
+
+    public function setLoge($pLoge) {
+        $this->_loge = $pLoge;
     }
 
     public function setToken($pToken) {

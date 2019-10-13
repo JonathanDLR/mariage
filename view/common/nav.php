@@ -2,6 +2,9 @@
     <a href="accueil">Accueil</a>
     <?php if ($_SESSION) { ?>
         <a href="informations">Informations</a>
+        <?php if (($_SESSION['type'] != "civil") && (!$_SESSION['loge'])) { ?>
+            <a href="hebergements">Hébergements</a>
+        <?php } ?>
         <a href="inscription">Inscription</a>
         <a href="deco">X</a>
     <?php } ?>
@@ -9,6 +12,26 @@
 </nav>
 
 <nav id="navMobile">
-    <div id="BUTmenu">Menu</div>
-    <a href="deco">X</a>
+    <a href="accueil">Accueil</a>
+    <div id="BUTmenu"><img src="web/img/menu.png" alt="menu" id="menu"></div>
 </nav>
+
+<?php if ($_SESSION) { ?>
+    <div id="DIVpopMenu">
+        <div>
+            <a href="informations">Informations</a>
+        </div>
+        <div>
+            <?php if (($_SESSION['type'] != "civil") && (!$_SESSION['loge'])) { ?>
+                <a href="hebergements">Hébergements</a>
+            <?php } ?>      
+        </div>
+        <div>
+            <a href="inscription">Inscription</a>
+        </div>  
+        <div>
+            <a href="deco">Deconnexion</a>
+        </div> 
+    </div>
+<?php } ?>
+    

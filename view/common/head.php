@@ -11,6 +11,9 @@
     case "Jonathan & Marie: Informations": ?>
         <link rel="stylesheet" href="web/css/informations.css">
         <?php break;
+    case "Jonathan & Marie: Hébergements": ?>
+        <link rel="stylesheet" href="web/css/hebergements.css">
+        <?php break;
     case "Jonathan & Marie: Inscription": 
         if ($_SESSION['type'] == "civil") { ?>
             <link rel="stylesheet" href="web/css/inscription_civil.css">

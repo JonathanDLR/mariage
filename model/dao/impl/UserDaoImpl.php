@@ -13,7 +13,7 @@ class UserDaoImpl extends AbstractDaoImpl implements UserDao {
    */
   public function getDbUser($login) {
     try {
-      $sql = "SELECT invite.id, nom, loginn, mdp, invitation.typee as type_invit FROM
+      $sql = "SELECT invite.id, nom, loginn, mdp, invitation.typee as type_invit, loge FROM
       invite JOIN invitation ON invite.type_invit = invitation.id WHERE loginn = :loginn";
       $connection = self::getDaoFactory()->getConnection();
       $req = $connection->prepare(''. $sql .'');

@@ -13,13 +13,32 @@ header {
 }
 
 #navMobile {
-  display: none;
+  display: flex;
   justify-content: space-between;
+}
+@media screen and (min-width: 825px) {
+  #navMobile {
+    display: none;
+  }
 }
 
 #navDesk {
-  display: flex;
+  display: none;
   justify-content: space-evenly;
+}
+@media screen and (min-width: 825px) {
+  #navDesk {
+    display: flex;
+  }
+}
+
+#DIVpopMenu {
+  display: none;
+}
+
+img {
+  height: 5vh;
+  width: auto;
 }
 
 /* FOOTER */

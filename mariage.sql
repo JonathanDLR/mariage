@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 13 Septembre 2019 à 11:41
+-- Généré le :  Sam 12 Octobre 2019 à 12:28
 -- Version du serveur :  10.3.17-MariaDB-0+deb10u1
--- Version de PHP :  7.3.9-1+0~20190902.44+debian9~1.gbpf8534c
+-- Version de PHP :  7.3.10-1+0~20191008.45+debian9~1.gbp365209
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -34,16 +34,18 @@ CREATE TABLE `inscription` (
   `nbre_repas_vegan` tinyint(3) UNSIGNED DEFAULT NULL,
   `allergie` varchar(100) DEFAULT NULL,
   `type_logement` int(10) UNSIGNED DEFAULT NULL,
-  `type_invit` int(10) UNSIGNED NOT NULL
+  `type_invit` int(10) UNSIGNED NOT NULL,
+  `repas_lendemain` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `inscription`
 --
 
-INSERT INTO `inscription` (`id`, `login_id`, `nbre_participant`, `vegan`, `nbre_repas_vegan`, `allergie`, `type_logement`, `type_invit`) VALUES
-(36, 2, 19, 1, 5, 'gluten', 1, 1),
-(37, 3, 5, 0, NULL, '', 1, 1);
+INSERT INTO `inscription` (`id`, `login_id`, `nbre_participant`, `vegan`, `nbre_repas_vegan`, `allergie`, `type_logement`, `type_invit`, `repas_lendemain`) VALUES
+(36, 2, 19, 1, 5, 'gluten', 1, 1, 0),
+(37, 3, 5, 0, 0, '', 1, 3, 1),
+(49, 4, 2, 0, 0, '', 1, 3, 0);
 
 --
 -- Déclencheurs `inscription`
@@ -58,8 +60,8 @@ DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `new_inscription` AFTER INSERT ON `inscription` FOR EACH ROW BEGIN
 INSERT INTO VM_inscription
-(id, nom, nombre, vegan, nbre_repas_vegas, allergie, logement, invitation)
-SELECT inscription.id, invite.nom, NEW.nbre_participant, NEW.vegan, NEW.nbre_repas_vegan, NEW.allergie, logement.nom, invitation.typee
+(id, nom, nombre, vegan, nbre_repas_vegan, allergie, logement, invitation, repas_lendemain)
+SELECT inscription.id, invite.nom, NEW.nbre_participant, NEW.vegan, NEW.nbre_repas_vegan, NEW.allergie, logement.nom, invitation.typee, NEW.repas_lendemain
 FROM inscription
 JOIN invite ON invite.id = new.login_id
 LEFT JOIN logement ON logement.id = new.type_logement
@@ -75,7 +77,7 @@ JOIN inscription ON VM_inscription.id = inscription.id
 JOIN invite ON invite.id = inscription.login_id
 LEFT JOIN logement ON logement.id = inscription.type_logement
 JOIN invitation ON invite.type_invit = invitation.id
-SET VM_inscription.nom = invite.nom, VM_inscription.nombre = inscription.nbre_participant, VM_inscription.vegan = inscription.vegan, VM_inscription.nbre_repas_vegan = inscription.nbre_repas_vegan, VM_inscription.allergie = inscription.allergie, VM_inscription.logement = logement.nom, VM_inscription.invitation = invitation.typee
+SET VM_inscription.nom = invite.nom, VM_inscription.nombre = inscription.nbre_participant, VM_inscription.vegan = inscription.vegan, VM_inscription.nbre_repas_vegan = inscription.nbre_repas_vegan, VM_inscription.allergie = inscription.allergie, VM_inscription.logement = logement.nom, VM_inscription.invitation = invitation.typee, VM_inscription.repas_lendemain = inscription.repas_lendemain
 WHERE VM_inscription.id = new.id;
 END
 $$
@@ -112,17 +114,42 @@ CREATE TABLE `invite` (
   `nom` varchar(50) NOT NULL,
   `loginn` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL,
-  `type_invit` int(10) UNSIGNED NOT NULL
+  `type_invit` int(10) UNSIGNED NOT NULL,
+  `token_val` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `invite`
 --
 
-INSERT INTO `invite` (`id`, `nom`, `loginn`, `mdp`, `type_invit`) VALUES
-(1, 'civil', 'civil', '$2y$10$PKeWKSik1X3xo0AzSkI9EuXWMOmiqe6HVIVNsZ27xOkkKrF3v/.Ra', 2),
-(2, 'laique', 'laique', '$2y$10$f/TeIVS58M2EBnOQn7sjQ.v7x4Dfqz6sDcCT2KFvsLCHaKd6KbVTi', 1),
-(3, 'both', 'both', '$2y$10$jwUFdpZPiYxbBLBoUoxUl.tGeSgiEQLcoY/SYxSAe8IOh6TeLBWb.', 3);
+INSERT INTO `invite` (`id`, `nom`, `loginn`, `mdp`, `type_invit`, `token_val`) VALUES
+(1, 'civil', 'civil', '$2y$10$PKeWKSik1X3xo0AzSkI9EuXWMOmiqe6HVIVNsZ27xOkkKrF3v/.Ra', 2, ''),
+(2, 'laique', 'laique', '$2y$10$f/TeIVS58M2EBnOQn7sjQ.v7x4Dfqz6sDcCT2KFvsLCHaKd6KbVTi', 1, ''),
+(3, 'both', 'both', '$2y$10$jwUFdpZPiYxbBLBoUoxUl.tGeSgiEQLcoY/SYxSAe8IOh6TeLBWb.', 3, ''),
+(4, 'jdlr', 'delarosa.jonathan@free.fr', '$2y$10$X7aKI/OdlWfrgNKa4Obsse6MyJZpyJbT9dweV5MoghQbJJ4.28rvm', 3, '3866646212a6647c63f784b1798e5fa9'),
+(5, 'dede', 'delphine.lozowski@gmail.com', '$2y$10$ZP1eh6J5bBzzdNkOz.3xOe8kHA095jjXYvFcdFHU/QK5CcxjsOLmu', 3, ''),
+(6, 'leo', 'leo-moufassa@hotmail.fr', '$2y$10$jg6g/yHqO6W/qFHltdgZdedQpydqP2sr2yN1OmDve2Qnrqie6tkme', 3, ''),
+(7, 'jonana', 'johanna.thiery30@gmail.com', '$2y$10$sIqACV6QwBEhqgC3HlLYbO7EOxylAWaktjJ2KNsy.uS/st7D2DZie', 1, ''),
+(8, 'willfired', 'tinywillhavehugeeffect@hotmail.fr', '$2y$10$zopcxDjZjpKKr.31cRvMueK9T8BiN0BnNhNXxFcWGt7mXU0bdrU9S', 1, ''),
+(9, 'alys', 'semserna@hotmail.fr', '$2y$10$9Zz7oItXd.z2d3pABtY7T.doB7/bECzI2Bnsxf55Ej2MTQPjZh41G', 1, ''),
+(10, 'lilian', 'lilga.81@gmail.com', '$2y$10$WlAlFoKeeX/Drf6maJ7/lOF3rj3Rcd40.AHQsnpKBWW/4poLJPC9q', 1, ''),
+(11, 'chantal', 'chantal.dejean@gmail.com', '$2y$10$NmZCP7LK3yedwq31W.W4X.yKTW4BFvy8zSsKcbb4jfW.aY06kah1a', 1, ''),
+(12, 'claugauja', 'claudine.gaujarengues@orange.fr', '$2y$10$yKV/1z0my6cWbRYw37XyrOX7FwK5N2NeknBSVeTk0kSMGMWALdxOe', 1, ''),
+(13, 'genevieve', 'faure.meyzonnet@wanadoo.fr', '$2y$10$Kg1I8kICQwe4qVv/u5Ncm.xsEZsXmuptoICHLKeSyBRE/0BHhq7a.', 3, ''),
+(14, 'gisele', 'gisele.meyzonnet@orange.fr', '$2y$10$iVfCnOnlM24862izhxC/LePAWxKTnV8y3rfr3w1Dc2rHdsHztpDi.', 1, ''),
+(15, 'francoise', 'francoise.piagneri@wanadoo.fr', '$2y$10$e8hI4WxiU2pEdrrYBojGwukTK59c0gQ9RVcLJiT7m4HCF99p2Iw3S', 1, ''),
+(16, 'flora', 'flora.piagneri@hotmail.fr', '$2y$10$QDtq/D/CgJ/v93wPEslUGul7qZbf01XZXXO8ZAaw8floAF5xxKtza', 1, ''),
+(17, 'michel', 'a.meyzonnet@orange.fr', '$2y$10$PmZlBiCjKbZGJHQD6ZDEeusYIHceTgh06zz7KIq0375k1GbeUk0/6', 1, ''),
+(18, 'julian', 'julian.piagneri@free.fr', '$2y$10$m76IanSJ1BOyXXEekSMZturAFWffyMeOYMzH1eLJpmbGDrVX4/Ir2', 1, ''),
+(19, 'robin', 'rmeyzonnet@yahoo.fr', '$2y$10$w9XRVyWTXFvlMUAhI0eyCeNudbkgsWv3RRyV.Hn99WHMJxakCBCLy', 1, ''),
+(20, 'dorian', 'dorian.meyzonnet@wanadoo.fr', '$2y$10$g2qbdQWPB01I5qiGqa0VJ.YwPMqBAx4VyBuHvEc0yAnwijZao4VVu', 1, ''),
+(21, 'olivier', 'olivier.faure26@gmail.com', '$2y$10$noErE0YSMOcm0Xgg1dizG.GjFXDZKSUDpltfm3q5KIg6fTS46ODSq', 1, ''),
+(22, 'dominique', 'domibiz@outlook.fr', '$2y$10$XR97HbYPGUf7DAtYsy0Ba.pyjKdaw/InJ.Tuz.sOPq6dnLVqcmMlK', 1, ''),
+(23, 'perrine', 'perbiz@hotmail.fr', '$2y$10$aiqe6IZamcJVVnQLWgqoo.hklZrGSeGcsSkxMGYUBFtv5yiX.caqq', 1, ''),
+(24, 'charline', 'charline.jaubert@yahoo.fr', '$2y$10$zAxkplfxzfDi1XgtPe5ZEuied/KVUPBXHZkw9e7oK1JbfuilhTgAC', 1, ''),
+(25, 'melanie', 'sorasama8@gmail.com', '$2y$10$KHEa6RANH8TIik8TinUBaOmpmJkzxANqIPPBXaV3/V8X0UTGDIN/u', 1, ''),
+(26, 'emeline', 'emelineh98@hotmail.fr', '$2y$10$tC6FpoXTnRiNkLRQ0w97te1O2umnROP.ysQv3sJM.CbEuwpK6t/4e', 1, ''),
+(27, 'elococon', 'elodiegonzalez13@hotmail.fr', '$2y$10$28J7pZpCfThiIe1JVMqqHeE0ra2X/ZC36fAswN1FY/M4CUCKhzI9y', 1, '');
 
 -- --------------------------------------------------------
 
@@ -157,16 +184,18 @@ CREATE TABLE `VM_inscription` (
   `nbre_repas_vegan` tinyint(3) UNSIGNED DEFAULT NULL,
   `allergie` varchar(100) DEFAULT NULL,
   `logement` varchar(100),
-  `invitation` varchar(100) NOT NULL
+  `invitation` varchar(100) NOT NULL,
+  `repas_lendemain` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `VM_inscription`
 --
 
--- INSERT INTO `VM_inscription` (`id`, `nom`, `nombre`, `vegan`, `nbre_repas_vegan`, `allergie`, `logement`, `invitation`) VALUES
--- (36, 'laique', 19, 1, 5, 'gluten', 'gite', 'laique'),
--- (37, 'both', 5, 0, NULL, '', 'gite', 'both');
+INSERT INTO `VM_inscription` (`id`, `nom`, `nombre`, `vegan`, `nbre_repas_vegan`, `allergie`, `logement`, `invitation`, `repas_lendemain`) VALUES
+(36, 'laique', 19, 1, 5, 'gluten', 'gite', 'laique', 0),
+(37, 'both', 5, 0, 0, '', 'gite', 'both', 1),
+(49, 'jdlr', 2, 0, 0, '', 'gite', 'both', 0);
 
 --
 -- Index pour les tables exportées
@@ -208,7 +237,7 @@ ALTER TABLE `logement`
 -- AUTO_INCREMENT pour la table `inscription`
 --
 ALTER TABLE `inscription`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT pour la table `invitation`
 --
@@ -218,7 +247,7 @@ ALTER TABLE `invitation`
 -- AUTO_INCREMENT pour la table `invite`
 --
 ALTER TABLE `invite`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT pour la table `logement`
 --

@@ -47,7 +47,7 @@ footer {
   justify-content: end;
 }
 
-/* ACCUEIL STYLE */
+/* HEBERGEMENTS STYLE */
 section {
   display: flex;
   flex-direction: column;
@@ -55,4 +55,4 @@ section {
   align-items: center;
 }
 
-/*# sourceMappingURL=accueil.css.map */
+/*# sourceMappingURL=hebergements.css.map */

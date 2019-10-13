@@ -3,6 +3,7 @@ RewriteEngine On
 
 RewriteRule ^accueil$ http://localhost/mariage/index.php?action=accueil [L]
 RewriteRule ^informations$ http://localhost/mariage/index.php?action=informations [L]
+RewriteRule ^hebergements$ http://localhost/mariage/index.php?action=hebergements [L]
 RewriteRule ^inscription$ http://localhost/mariage/index.php?action=inscription [L]
 RewriteRule ^deco$ http://localhost/mariage/index.php?action=deco [L]
 RewriteRule ^forgotpswd$ http://localhost/mariage/index.php?action=forgotpswd [L]

@@ -79,7 +79,8 @@ ob_start(); ?>
                                    }
                                } ?> />
                     </div>
-                    <div>
+                    <?php if (!$_SESSION['loge']) { ?>
+                        <div>
                         <label for="logement">Gite ou Hotel?</label>
                         <select id="logement" name="logement">
                             <option value=1
@@ -98,7 +99,10 @@ ob_start(); ?>
                                     >Hotel</option>
                         </select>
                     </div>
-                <?php } ?>
+                    <?php } else { ?>
+                        <div></div>
+                    <?php }                    
+                } ?>
                 <div>
                     <input id="submit" type="submit" value="Envoyer" />
                 </div>
