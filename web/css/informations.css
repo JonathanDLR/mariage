@@ -55,4 +55,31 @@ section {
   align-items: center;
 }
 
+#prieure, #mairie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#prieure > div h3, #mairie > div h3 {
+  display: flex;
+  justify-content: center;
+}
+
+#prieure div p, #prieure div ul {
+  text-align: center;
+}
+#prieure div div {
+  display: flex;
+  justify-content: center;
+}
+#prieure div div img {
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+  width: auto;
+  margin: 0;
+}
+
 /*# sourceMappingURL=informations.css.map */

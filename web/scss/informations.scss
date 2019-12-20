@@ -8,3 +8,38 @@ section {
     justify-content: center;
     align-items: center;
 }
+
+#prieure, #mairie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#prieure > div h3, #mairie > div h3 {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#prieure {
+    div {
+        p, ul {
+            text-align: center;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+
+            img {
+                display: flex;
+                justify-content: center;
+                height: 40vh;
+                width: auto;
+                margin: 0;
+            }
+        }
+    }  
+}

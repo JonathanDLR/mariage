@@ -13,7 +13,7 @@
 
 <nav id="navMobile">
     <a href="accueil">Accueil</a>
-    <div id="BUTmenu"><img src="web/img/menu.png" alt="menu" id="menu"></div>
+    <div id="BUTmenu"><img src="web/img/menu.png" alt="menu" id="menu" /></div>
 </nav>
 
 <?php if ($_SESSION) { ?>
