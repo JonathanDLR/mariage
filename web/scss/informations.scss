@@ -2,6 +2,10 @@
 
 /* INFORMATIONS STYLE */
 
+section, article {
+    width: 100%;
+}
+
 section {
     display: flex;
     flex-direction:column;
@@ -23,8 +27,14 @@ section {
 
 
 
-#prieure {
+#prieure, #mairie {
     div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
         p, ul {
             text-align: center;
         }
@@ -32,14 +42,27 @@ section {
         div {
             display: flex;
             justify-content: center;
+            width: 80%;
 
             img {
                 display: flex;
                 justify-content: center;
-                height: 40vh;
-                width: auto;
+                height: auto;
+                width: 60%;
                 margin: 0;
             }
         }
     }  
+}
+
+iframe {
+    height: 30vh;
+    width: 60%;  
+
+    @media screen and (min-width: 1024px) {
+        height: 40vh;
+    }
+    @media screen and (max-height: 420px) {
+        height: 40vh;
+    }
 }

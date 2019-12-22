@@ -48,6 +48,10 @@ footer {
 }
 
 /* INFORMATIONS STYLE */
+section, article {
+  width: 100%;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -67,19 +71,42 @@ section {
   justify-content: center;
 }
 
-#prieure div p, #prieure div ul {
+#prieure div, #mairie div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#prieure div p, #prieure div ul, #mairie div p, #mairie div ul {
   text-align: center;
 }
-#prieure div div {
+#prieure div div, #mairie div div {
   display: flex;
   justify-content: center;
+  width: 80%;
 }
-#prieure div div img {
+#prieure div div img, #mairie div div img {
   display: flex;
   justify-content: center;
-  height: 40vh;
-  width: auto;
+  height: auto;
+  width: 60%;
   margin: 0;
+}
+
+iframe {
+  height: 30vh;
+  width: 60%;
+}
+@media screen and (min-width: 1024px) {
+  iframe {
+    height: 40vh;
+  }
+}
+@media screen and (max-height: 420px) {
+  iframe {
+    height: 40vh;
+  }
 }
 
 /*# sourceMappingURL=informations.css.map */
