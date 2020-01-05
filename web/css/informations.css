@@ -6,6 +6,11 @@ html, body {
   padding: 0;
 }
 
+/* FONT */
+@font-face {
+  font-family: "titre";
+  src: url("../font/boshela.ttf");
+}
 /* HEADER */
 header {
   display: flex;
@@ -69,6 +74,8 @@ section {
 #prieure > div h3, #mairie > div h3 {
   display: flex;
   justify-content: center;
+  font-family: titre;
+  font-size: 2em;
 }
 
 #prieure div, #mairie div {
@@ -92,6 +99,9 @@ section {
   height: auto;
   width: 60%;
   margin: 0;
+}
+#prieure div div .timeline, #mairie div div .timeline {
+  width: 70%;
 }
 
 iframe {

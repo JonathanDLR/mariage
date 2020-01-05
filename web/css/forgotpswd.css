@@ -6,6 +6,11 @@ html, body {
   padding: 0;
 }
 
+/* FONT */
+@font-face {
+  font-family: "titre";
+  src: url("../font/boshela.ttf");
+}
 /* HEADER */
 header {
   display: flex;

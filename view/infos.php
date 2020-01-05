@@ -24,10 +24,11 @@ ob_start();
 
                     <div>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d411018.88176925457!2d-0.3714271192563251!3d47.40823745583819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4807dc0b257a2895%3A0x40d37521e0d97d0!2sCharc%C3%A9-Saint-Ellier-sur-Aubance%2C%2049320%20Brissac-Loire-Aubance!5e0!3m2!1sfr!2sfr!4v1576871364546!5m2!1sfr!2sfr" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                    <div>
-
+                    </div>
+                </div>
                 <div>
                     <h3>Programme de la Journée</h3>
+                    <div><img src="web/img/timeline2.png" alt="timeline prieuré" class="timeline" /></div>
                 </div>
             </article>
         <?php } ?>
@@ -40,12 +41,12 @@ ob_start();
 
                     <div>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90824.51505412822!2d4.71365361723687!3d44.65291480155687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b540e09afbdfcd%3A0xd35ee713f7f5287d!2sPlace%20Ren%C3%A9%20Cassin%2C%2007350%20Cruas!5e0!3m2!1sfr!2sfr!4v1577037564229!5m2!1sfr!2sfr" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                        </div>
-                </div>
-
-                <div>
-                    <h3>Programme de la Journée</h3>
-                </div>
+                    </div>
+            </div>
+            <div>
+                <h3>Programme de la Journée</h3>
+                <div><img src="web/img/timeline1.png" alt="timeline mairie" class="timeline" /></div>
+            </div>
             <article>
         <?php } ?>
     </section>

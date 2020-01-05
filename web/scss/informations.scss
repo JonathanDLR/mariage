@@ -23,6 +23,8 @@ section {
 #prieure > div h3, #mairie > div h3 {
     display: flex;
     justify-content: center;
+    font-family: titre;
+    font-size: 2em;
 }
 
 
@@ -51,7 +53,11 @@ section {
                 width: 60%;
                 margin: 0;
             }
-        }
+        
+            .timeline {
+                width: 70%;
+            }
+        }      
     }  
 }
 
