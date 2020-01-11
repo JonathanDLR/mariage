@@ -2,11 +2,35 @@
 
 /* HEBERGEMENTS STYLE */
 
-section {
+section, article {
     display: flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
+
+    h3 {
+        text-align: center;
+    }
+
+    img {
+        height: 20vh;
+    }
+}
+
+article {
+    width: 80%;
+}
+
+iframe {
+    height: 30vh;
+    width: 60%;  
+
+    @media screen and (min-width: 1024px) {
+        height: 40vh;
+    }
+    @media screen and (max-height: 420px) {
+        height: 40vh;
+    }
 }
 
 

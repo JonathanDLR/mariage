@@ -75,7 +75,8 @@ section {
   display: flex;
   justify-content: center;
   font-family: titre;
-  font-size: 2em;
+  font-size: 3em;
+  font-weight: normal;
 }
 
 #prieure div, #mairie div {
@@ -101,7 +102,7 @@ section {
   margin: 0;
 }
 #prieure div div .timeline, #mairie div div .timeline {
-  width: 70%;
+  width: 60%;
 }
 
 iframe {

@@ -30,6 +30,11 @@ ob_start();
                     <h3>Programme de la Journée</h3>
                     <div><img src="web/img/timeline2.png" alt="timeline prieuré" class="timeline" /></div>
                 </div>
+                <div>
+                    <h3>Le lendemain</h3>
+                    <span>A partir de 11h, venez prolonger la fête autour de spécialités angevines<br/>
+                    Amateurs de sport, n'oubliez pas vos affaires: terrains de tennis, vélos et piscine à disposition</span>
+                </div>
             </article>
         <?php } ?>
         <?php if (($_SESSION['type'] == "both") || ($_SESSION['type'] == "civil")) { ?>
