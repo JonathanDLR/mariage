@@ -7,15 +7,17 @@ ob_start();
         </article>
 
         <?php if (($_SESSION['type'] != "civil") && (!$_SESSION['loge'])) { ?>
-            <span>Pour votre confort, voici quelques informations sur les hébergements à votre disposition<br/>
-            du vendredi 18 au dimanche 20 septembre.</span>
+            <p>
+                Pour votre confort, voici quelques informations sur les hébergements à votre disposition<br/>
+                du vendredi 18 au dimanche 20 septembre.
+            </p>
             <article>  
                 <h3>Infos Gites</h3>
                 <h4>Le domaine de l'étang, camping 4 étoiles</h4>
                 <img src="web/img/gite_etang.jpg" alt="gite étang" />
                 <p>
                     <span>3 gites de 10 personnes chacun</span>
-                <p>
+                
                     <ul>
                         <li>Route de St-Mathurin, 49320 Brissac-Quincé</li>
                         <li>02 41 91 70 61</li>
@@ -32,7 +34,7 @@ ob_start();
                 <img src="web/img/hotellecastel.jpg" alt="le castel" />
                 <p>
                     <span>9 chambres doubles, 1 chambre triple, 1 chambre de 4 personnes</span>
-                <p>
+                
                     <ul>
                         <li>1 Rue Louis Moron, 49320 Brissac-Loire-Aubance</li>
                         <li>06 69 20 15 16, 02 41 91 24 74</li>
@@ -49,7 +51,7 @@ ob_start();
                 <p>
                     <span>1 appartement de 2 chambres / 4 personnes<br/>
                     1 studio de 2 personnes</span>
-                <p>
+                
                     <ul>
                         <li>17 Rue Louis Moron, 49320 Brissac-Loire-Aubance</li>
                         <li>A environ 10 minutes du prieuré</li>

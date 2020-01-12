@@ -80,3 +80,7 @@ form {
 #formOk {
     height: 6vh;
 }
+
+input[type="checkbox"]:hover, input[type="submit"]:hover {
+    cursor: pointer;
+}

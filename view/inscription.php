@@ -3,7 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/Inscription.php');
 ob_start(); ?>
     <section>
         <article>
-            <h2>Inscription <?php echo $_SESSION['nom'] . $_SESSION['type']; ?></h2>
+            <h2>Votre Participation</h2>
             <form id="formIns">
                 <div>
                     <label for="presence">Vous serez présent</label>
@@ -37,7 +37,7 @@ ob_start(); ?>
                                        echo 'checked';
                                    }
                                } ?> />
-                        <label for="nbreVegan">Nombre de repas Vege?</label>
+                        <label for="nbreVegan" id="nbreVege">Nombre de repas Vege?</label>
                         <input type="number"
                                id="nbreVegan"
                                name="nbreVegan"

@@ -5,7 +5,7 @@ ob_start();
 
         <?php if (($_SESSION['type'] == "both") || ($_SESSION['type'] == "laique")) { ?>
             <article id="prieure">
-                <h2>Informations Prieuré</h2>
+                <h2>Lieu de la Cérémonie Laique</h2>
                 <div>
                     <div><img src="web/img/prieure.jpg" alt="prieure" /></div>
 
@@ -32,14 +32,16 @@ ob_start();
                 </div>
                 <div>
                     <h3>Le lendemain</h3>
-                    <span>A partir de 11h, venez prolonger la fête autour de spécialités angevines<br/>
-                    Amateurs de sport, n'oubliez pas vos affaires: terrains de tennis, vélos et piscine à disposition</span>
+                    <p>
+                        A partir de 11h, venez prolonger la fête autour de spécialités angevines.<br/>
+                        Amateurs de sport, n'oubliez pas vos affaires: terrains de tennis, vélos et piscine à disposition.
+                    </p>
                 </div>
             </article>
         <?php } ?>
         <?php if (($_SESSION['type'] == "both") || ($_SESSION['type'] == "civil")) { ?>
             <article id="mairie">
-                <h2>Informations Mairie</h2>
+                <h2>Lieu de la Cérémonie Civile</h2>
                 <div>
                     <p>Vous êtes conviés le samedi 22 août 2020 à partir de 10h30 à la mairie de Cruas <br/>
                     Place René Cassin, 07350 Cruas.</p>

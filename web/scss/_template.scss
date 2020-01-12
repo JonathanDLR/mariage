@@ -19,11 +19,30 @@ html, body {
 header {
     display: flex;
     justify-content: center;
+
+    img {
+        height: 20vh;
+    }
+}
+
+nav, #DIVpopMenu {
+    a {
+        text-decoration: none;
+        font-family: titre;
+        font-size: 2em;
+        color: green;
+    }
+
+    a:hover {
+        font-size: 2.5em;
+    }
 }
 
 #navMobile {
     display: flex;
     justify-content: space-between;
+    margin-left: 4%;
+    margin-right: 4%;
     @media screen and (min-width: 825px) {
         display: none;
     }
@@ -32,18 +51,36 @@ header {
 #navDesk {
     display: none;
     justify-content: space-evenly;
+    align-items: center;
+    height: 14vh;
     @media screen and (min-width: 825px) {
-        display: flex;
+        display: flex;     
+    }
+
+    a {
+        width: 20%;
+        text-align: center;
     }
 }
 
 #DIVpopMenu {
     display: none;
+    margin-left:4%;
 }
 
 img {
     height: 5vh;
     width: auto;
+}
+
+/* BODY */
+
+p, li {
+    font-family: Garamond, serif;
+}
+
+input[type="checkbox"]:hover, input[type="submit"]:hover, select {
+    cursor: pointer;
 }
 
 /* FOOTER */

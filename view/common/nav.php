@@ -6,7 +6,7 @@
             <a href="hebergements">Hébergements</a>
         <?php } ?>
         <a href="inscription">Inscription</a>
-        <a href="deco">X</a>
+        <a href="deco">Déconnexion</a>
     <?php } ?>
     
 </nav>
