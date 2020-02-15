@@ -4,7 +4,10 @@
 
 REINITIALISATION = {
     init: function() {
-        document.getElementById("submit").addEventListener("click", REINITIALISATION.send)
+        var elementExist = document.getElementById("submit");
+        if (elementExist) {
+            document.getElementById("submit").addEventListener("click", REINITIALISATION.send);
+        }        
     },
 
     send: function() {

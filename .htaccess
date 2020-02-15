@@ -7,3 +7,4 @@ RewriteRule ^hebergements$ http://localhost/mariage/index.php?action=hebergement
 RewriteRule ^inscription$ http://localhost/mariage/index.php?action=inscription [L]
 RewriteRule ^deco$ http://localhost/mariage/index.php?action=deco [L]
 RewriteRule ^forgotpswd$ http://localhost/mariage/index.php?action=forgotpswd [L]
+RewriteRule ^reinitpswd$ http://localhost/mariage/index.php?action=reinit [L]

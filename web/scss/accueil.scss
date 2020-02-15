@@ -1,10 +1,18 @@
 @import 'template';
 
 /* ACCUEIL STYLE */
+html {
+    background-size: cover;
+}
+
+body {
+    height: 100vh;
+}
 
 section {
     display: flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    height:63.5vh;
 }

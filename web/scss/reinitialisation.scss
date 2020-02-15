@@ -1,6 +1,13 @@
 @import 'template';
 
 /* Reinitialisation style */
+html {
+    background-size: cover;
+}
+
+body {
+    height: 100vh;
+}
 
 section  {
     display: grid;

@@ -1,6 +1,13 @@
 @import 'template';
 
 /* FORGOTPSWD STYLE */
+html {
+    background-size: cover;
+}
+
+body {
+    height: 100vh;
+}
 
 section  {
     display: grid;

@@ -8,7 +8,7 @@
 
         <?php include('view/common/header.php'); ?>
 
-        <?php if ($title !== "Jonathan & Marie: Connexion") {
+        <?php if (($title !== "Jonathan & Marie: Connexion")) {
             include('view/common/nav.php');
         } ?>
 

@@ -1,6 +1,13 @@
 @import 'template';
 
 /* CONNEXION STYLE */
+html {
+    background-size: cover;
+}
+
+body {
+    height: 100vh;
+}
 
 form {
     display: grid;
