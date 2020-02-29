@@ -6,11 +6,15 @@ html {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
     height: 56vh;
+
+    @media screen and (max-height: 420px) {
+        height: 70vh;
+    }
 }
 
 section {
@@ -19,4 +23,12 @@ section {
     justify-content: center;
     align-items: center;
     height:63.5vh;
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
 }

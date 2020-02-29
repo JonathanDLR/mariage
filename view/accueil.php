@@ -2,7 +2,19 @@
 ob_start(); ?>
     <section>
         <article>
-            <span>Bonjour <?php echo $_SESSION['nom'] . $_SESSION['type']; ?></span>
+            <h1>Bonjour <?php echo ucfirst($_SESSION['nom']); ?></h1>
+
+            <p>
+                Bienvenue sur le site de notre mariage!<br/><br/>
+                Vous y trouverez les formulaires pour valider votre participation
+                ainsi que toutes les informations utiles<br/>
+                sur les logements et les cérémonies.<br/><br/>
+                N'hésitez pas à nous contacter si vous avez la moindre question:<br/><br/>
+                Marie: 06 . 32 . 37 . 96 . 84<br/>
+                Jonathan: 06 . 31 . 59 . 60 . 72<br/><br/>
+                Nous espérons vous compter parmis nous.<br/>
+                Bonne navigation!
+            </p>
         </article>
     </section>
 <?php $contain = ob_get_clean();

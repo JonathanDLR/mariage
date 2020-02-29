@@ -48,7 +48,7 @@ section {
             margin-left: 2%;
 
             @media screen and (min-width: 825px) {
-                margin-left: 40vh;    
+                margin-left: 40%;    
             }  
         }
 
@@ -95,7 +95,7 @@ section {
         grid-row: 3;
         display: grid;
         align-items: center;
-        grid-template-columns: [col1] 40% [col2] 10% [col3] 30% [col4] 10%;
+        grid-template-columns: [col1] 45% [col2] 10% [col3] 25% [col4] 10%;
         grid-template-rows: [row1] 100%;
 
         input {
@@ -132,7 +132,7 @@ section {
             line-height: 1.75em;
             margin-left: 2%;
             @media screen and (min-width: 825px) {
-                margin-left: 40vh;    
+                margin-left: 40%;    
             }  
         }
 
@@ -143,14 +143,22 @@ section {
 
         input {
             height: 3vh;
-            width: 40%;
+            width: 80%;
             margin-left: 4%;
+
+            @media screen and (min-width: 825px) {
+                width: 40%;    
+            }  
+
+            @media screen and (max-height: 420px) {
+                height: 6vh;
+            }
         }
 
         label[for=nbreVegan] {
             grid-column: 3;
             @media screen and (min-width: 825px) {
-                margin-left: 20vh;    
+                margin-left: 20%;    
             }  
         }
       
@@ -226,7 +234,7 @@ section {
 
         label {
             @media screen and (min-width: 825px) {
-                margin-left: 20vh;    
+                margin-left: 20%;    
             } 
         }
 
