@@ -19,7 +19,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AbstractController.p
           session_destroy();
           header('Location: /mariage');
         } else {
-            echo "Vous n'etes pas connecté!";
+            //echo "Vous n'etes pas connecté!";
             include('view/connexion.php');
         }    
     }

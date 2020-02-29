@@ -28,11 +28,11 @@ header img {
 nav a, #DIVpopMenu a {
   text-decoration: none;
   font-family: titre;
-  font-size: 2em;
+  font-size: 2.5em;
   color: green;
 }
 nav a:hover, #DIVpopMenu a:hover {
-  font-size: 2.5em;
+  font-size: 3em;
 }
 
 #navMobile {
@@ -40,6 +40,7 @@ nav a:hover, #DIVpopMenu a:hover {
   justify-content: space-between;
   margin-left: 4%;
   margin-right: 4%;
+  height: 14vh;
 }
 @media screen and (min-width: 825px) {
   #navMobile {
@@ -49,14 +50,22 @@ nav a:hover, #DIVpopMenu a:hover {
 
 #navDesk {
   display: none;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   height: 14vh;
+  width: 100%;
 }
 @media screen and (min-width: 825px) {
   #navDesk {
     display: flex;
   }
+}
+#navDesk div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 14vh;
+  width: 60%;
 }
 #navDesk a {
   width: 20%;
@@ -103,7 +112,9 @@ input:focus, select:focus {
 /* FOOTER */
 footer {
   display: flex;
-  justify-content: end;
+  align-items: center;
+  margin-left: 6%;
+  height: 6vh;
 }
 
 /* Reinitialisation style */

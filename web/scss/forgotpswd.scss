@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 section  {
@@ -22,14 +22,24 @@ section  {
     div:not(:nth-child(3)) {
         display: grid;
         align-items: center;
-        grid-template-columns: [col1] 35% [col2] 65%;
+        grid-template-columns: [col1] 45% [col2] 55%;
 
         input {
-            justify-self: center;
+            justify-self: start;
+            @media screen and (min-width: 825px) {
+                margin-left: 20vh;    
+            }  
+                
+            @media screen and (max-height: 420px) {
+                height: 6vh !important;
+            }
         }
 
         span {
-            justify-self: end;
+            justify-self: start;
+            @media screen and (min-width: 825px) {
+                margin-left: 30vh;    
+            }  
         }
 
         span {
@@ -40,8 +50,11 @@ section  {
         input {
             grid-column: 2;
             height: 3vh;
-            width: 80%;
+            width: 60%;
             margin-left: 4%;
+            @media screen and (min-width: 825px) {
+                width: 40%;
+            }  
         }
     }
 
@@ -60,7 +73,14 @@ section  {
 
         input {
             height: 4vh;
-            width: 20vw;
+            width: 30vw;
+            @media screen and (min-width: 825px) {
+                width: 20vw;
+            }  
+
+            @media screen and (max-height: 420px) {
+                height: 6vh !important;
+            }
         }
     }
 }

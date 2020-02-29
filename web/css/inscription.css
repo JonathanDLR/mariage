@@ -28,11 +28,11 @@ header img {
 nav a, #DIVpopMenu a {
   text-decoration: none;
   font-family: titre;
-  font-size: 2em;
+  font-size: 2.5em;
   color: green;
 }
 nav a:hover, #DIVpopMenu a:hover {
-  font-size: 2.5em;
+  font-size: 3em;
 }
 
 #navMobile {
@@ -40,6 +40,7 @@ nav a:hover, #DIVpopMenu a:hover {
   justify-content: space-between;
   margin-left: 4%;
   margin-right: 4%;
+  height: 14vh;
 }
 @media screen and (min-width: 825px) {
   #navMobile {
@@ -49,14 +50,22 @@ nav a:hover, #DIVpopMenu a:hover {
 
 #navDesk {
   display: none;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   height: 14vh;
+  width: 100%;
 }
 @media screen and (min-width: 825px) {
   #navDesk {
     display: flex;
   }
+}
+#navDesk div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 14vh;
+  width: 60%;
 }
 #navDesk a {
   width: 20%;
@@ -103,7 +112,9 @@ input:focus, select:focus {
 /* FOOTER */
 footer {
   display: flex;
-  justify-content: end;
+  align-items: center;
+  margin-left: 6%;
+  height: 6vh;
 }
 
 /* INSCRIPTION STYLE */
@@ -125,46 +136,59 @@ section article {
 #formIns {
   display: grid;
   grid-template-rows: [row1] 12.5% [row2] 12.5% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5%;
-  grid-template-columns: 80%;
+  grid-template-columns: 100%;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 90%;
-  height: 60vh;
+  width: 100%;
+  height: 110vh;
 }
 @media screen and (min-width: 1024px) {
   #formIns {
-    height: 40vh;
+    height: 60vh;
   }
 }
 @media screen and (max-height: 420px) {
   #formIns {
-    height: 80vh;
+    height: 110vh;
   }
 }
 #formIns div:not(:nth-child(3)):not(:nth-child(8)) {
   display: grid;
   align-items: center;
-  grid-template-columns: [col1] 35% [col2] 65%;
+  grid-template-columns: [col1] 45% [col2] 55%;
 }
-#formIns div:not(:nth-child(3)):not(:nth-child(8)) input {
-  justify-self: center;
-}
-#formIns div:not(:nth-child(3)):not(:nth-child(8)) span {
-  justify-self: end;
-}
-#formIns div:not(:nth-child(3)):not(:nth-child(8)) span {
+#formIns div:not(:nth-child(3)):not(:nth-child(8)) label {
+  justify-self: start;
   grid-column: 1;
   line-height: 1.75em;
+  margin-left: 2%;
 }
-#formIns div:not(:nth-child(3)):not(:nth-child(8)) input {
+@media screen and (min-width: 825px) {
+  #formIns div:not(:nth-child(3)):not(:nth-child(8)) label {
+    margin-left: 40vh;
+  }
+}
+#formIns div:not(:nth-child(3)):not(:nth-child(8)) input, #formIns div:not(:nth-child(3)):not(:nth-child(8)) select {
+  justify-self: center;
   grid-column: 2;
   height: 3vh;
   width: 80%;
   margin-left: 4%;
 }
+@media screen and (min-width: 825px) {
+  #formIns div:not(:nth-child(3)):not(:nth-child(8)) input, #formIns div:not(:nth-child(3)):not(:nth-child(8)) select {
+    width: 40%;
+  }
+}
+@media screen and (max-height: 420px) {
+  #formIns div:not(:nth-child(3)):not(:nth-child(8)) input, #formIns div:not(:nth-child(3)):not(:nth-child(8)) select {
+    height: 6vh;
+    width: 60%;
+  }
+}
 #formIns div:not(:nth-child(3)):not(:nth-child(8)) input[type=checkbox] {
-  justify-self: start;
+  justify-self: center;
   width: 10%;
   margin-left: 2%;
 }
@@ -188,15 +212,26 @@ section article {
   grid-row: 3;
   display: grid;
   align-items: center;
-  grid-template-columns: [col1] 28% [col2] 15% [col3] 36% [col4] 20%;
+  grid-template-columns: [col1] 40% [col2] 10% [col3] 30% [col4] 10%;
   grid-template-rows: [row1] 100%;
 }
 #formIns div:nth-child(3) input {
   justify-self: start;
 }
+@media screen and (max-height: 420px) {
+  #formIns div:nth-child(3) input {
+    height: 6vh;
+    width: 60%;
+  }
+}
 #formIns div:nth-child(3) input[type=checkbox] {
-  justify-self: end;
+  justify-self: center;
   margin-right: 0;
+}
+@media screen and (max-height: 420px) {
+  #formIns div:nth-child(3) input[type=checkbox] {
+    height: 6vh;
+  }
 }
 @media screen and (min-width: 1024px) {
   #formIns div:nth-child(3) input[type=checkbox] {
@@ -211,16 +246,33 @@ section article {
 #formIns div:nth-child(3) #nbreVege {
   text-align: center;
 }
-#formIns div:nth-child(3) span {
-  justify-self: end;
+#formIns div:nth-child(3) label {
+  justify-self: start;
+  grid-column: 1;
+  line-height: 1.75em;
+  margin-left: 2%;
+}
+@media screen and (min-width: 825px) {
+  #formIns div:nth-child(3) label {
+    margin-left: 40vh;
+  }
 }
 #formIns div:nth-child(3) span {
+  justify-self: end;
   line-height: 1.75em;
 }
 #formIns div:nth-child(3) input {
   height: 3vh;
   width: 40%;
   margin-left: 4%;
+}
+#formIns div:nth-child(3) label[for=nbreVegan] {
+  grid-column: 3;
+}
+@media screen and (min-width: 825px) {
+  #formIns div:nth-child(3) label[for=nbreVegan] {
+    margin-left: 20vh;
+  }
 }
 #formIns div:nth-child(3) label[for=nbreVegan], #formIns div:nth-child(3) #nbreVegan {
   display: none;
@@ -241,6 +293,11 @@ section article {
   width: 80%;
   margin-left: 4%;
   justify-self: center;
+}
+@media screen and (min-width: 825px) {
+  #formIns div:nth-child(7) select {
+    width: 40%;
+  }
 }
 #formIns div:nth-child(8) {
   grid-row: 8;
@@ -272,21 +329,33 @@ section article {
   align-items: center;
   grid-template-columns: [col1] 35% [col2] 65%;
 }
-#formMdp div:not(:nth-child(4)) input {
-  justify-self: center;
-}
 #formMdp div:not(:nth-child(4)) span {
   justify-self: end;
-}
-#formMdp div:not(:nth-child(4)) span {
   grid-column: 1;
   line-height: 1.75em;
 }
+@media screen and (min-width: 825px) {
+  #formMdp div:not(:nth-child(4)) label {
+    margin-left: 20vh;
+  }
+}
 #formMdp div:not(:nth-child(4)) input {
+  justify-self: center;
   grid-column: 2;
   height: 3vh;
   width: 80%;
   margin-left: 4%;
+}
+@media screen and (min-width: 825px) {
+  #formMdp div:not(:nth-child(4)) input {
+    width: 40%;
+  }
+}
+@media screen and (max-height: 420px) {
+  #formMdp div:not(:nth-child(4)) input {
+    height: 6vh;
+    width: 60%;
+  }
 }
 #formMdp div:nth-child(1) {
   grid-row: 1;

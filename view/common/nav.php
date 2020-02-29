@@ -1,14 +1,15 @@
 <nav id="navDesk">
-    <a href="accueil">Accueil</a>
-    <?php if ($_SESSION) { ?>
-        <a href="informations">Informations</a>
-        <?php if (($_SESSION['type'] != "civil") && (!$_SESSION['loge'])) { ?>
-            <a href="hebergements">Hébergements</a>
+    <div>
+        <a href="accueil">Accueil</a>
+        <?php if ($_SESSION) { ?>
+            <a href="informations">Informations</a>
+            <?php if (($_SESSION['type'] != "civil") && (!$_SESSION['loge'])) { ?>
+                <a href="hebergements">Hébergements</a>
+            <?php } ?>
+            <a href="inscription">Inscription</a>
+            <a href="deco">Déconnexion</a>
         <?php } ?>
-        <a href="inscription">Inscription</a>
-        <a href="deco">Déconnexion</a>
-    <?php } ?>
-    
+    </div>
 </nav>
 
 <nav id="navMobile">

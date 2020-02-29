@@ -1,3 +1,3 @@
 <footer>
-    <span>Copyright date</span>
+    <span>Copyright M.M</span>
 </footer>

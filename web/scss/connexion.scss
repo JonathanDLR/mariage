@@ -9,6 +9,10 @@ body {
     height: 100vh;
 }
 
+.container {
+    height: 74vh;
+}
+
 form {
     display: grid;
     grid-template-rows: [row1] 33% [row2] 33% [row3] 33%;
@@ -22,7 +26,13 @@ form {
     div:not(:nth-child(3)) {
         display: grid;
         align-items: center;
-        grid-template-columns: [col1] 35% [col2] 65%;
+        grid-template-columns: [col1] 45% [col2] 55%;
+
+        label {
+            @media screen and (min-width: 825px) {
+                margin-left: 20vh;    
+            }           
+        }
 
         input {
             justify-self: center;
@@ -40,7 +50,7 @@ form {
         input {
             grid-column: 2;
             height: 3vh;
-            width: 80%;
+            width: 40%;
             margin-left: 4%;
         }
     }
