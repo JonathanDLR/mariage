@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/manager/impl/AbstractManagerImpl.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/manager/contract/UserManager.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/User.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/manager/impl/AbstractManagerImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/manager/contract/UserManager.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/User.php');
 
 /**
  * Manager of the user entity

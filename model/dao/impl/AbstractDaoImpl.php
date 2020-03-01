@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/contract/DaoFactory.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/contract/DaoFactory.php');
 
 /**
  * Abstract class creating DaoFactory instance and getting acces to DaoFactory

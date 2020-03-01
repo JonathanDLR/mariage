@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/User.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/User.php');
 
 Interface UserDao
 {

@@ -1,13 +1,13 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/impl/DaoFactoryImpl.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/manager/impl/ManagerFactoryImpl.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/ConnexionController.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AccueilController.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/InfosController.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/HebergementsController.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/InscriptionController.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/ForgotpswdController.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/ReinitialisationController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/impl/DaoFactoryImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/manager/impl/ManagerFactoryImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/ConnexionController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/AccueilController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/InfosController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/HebergementsController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/InscriptionController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/ForgotpswdController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/ReinitialisationController.php');
 
 class Router {
     private $_daoFactory;

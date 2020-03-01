@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/Inscription.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/Inscription.php');
 
 interface InscriptionDao {
     public function getInscriptionDb($loginId);

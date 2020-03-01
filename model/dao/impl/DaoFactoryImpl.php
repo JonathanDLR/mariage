@@ -1,8 +1,8 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/impl/DbPdo.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/contract/DaoFactory.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/impl/UserDaoImpl.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/impl/InscriptionDaoImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/impl/DbPdo.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/contract/DaoFactory.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/impl/UserDaoImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/impl/InscriptionDaoImpl.php');
 
 /**
  * Factory of Dao Elements

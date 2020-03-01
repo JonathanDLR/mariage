@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/manager/contract/ManagerFactory.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/manager/contract/ManagerFactory.php');
 
 /**
  * Abstract class getting acces to the Manager Factory

@@ -12,10 +12,10 @@ ob_start(); ?>
                 N'hésitez pas à nous contacter si vous avez la moindre question:<br/><br/>
                 Marie: 06 . 32 . 37 . 96 . 84<br/>
                 Jonathan: 06 . 31 . 59 . 60 . 72<br/><br/>
-                Nous espérons vous compter parmis nous.<br/>
+                Nous espérons vous compter parmi nous.<br/>
                 Bonne navigation!
             </p>
         </article>
     </section>
 <?php $contain = ob_get_clean();
-require($_SERVER['DOCUMENT_ROOT'].'/mariage/view/common/template.php'); ?>
+require($_SERVER['DOCUMENT_ROOT'].'/view/common/template.php'); ?>

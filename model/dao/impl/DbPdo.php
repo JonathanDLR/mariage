@@ -16,7 +16,8 @@ class DbPdo {
 
     public static function getInstance() {
         if (!(self::$_instance instanceof PDO)) {
-            self::$_instance = new PDO('mysql:host=localhost; dbname=mariage; charset=utf8', 'root', 'marie89');
+            //self::$_instance = new PDO('mysql:host=localhost; dbname=mariage; charset=utf8', 'root', 'marie89');
+            self::$_instance = new PDO('mysql:host=; dbname=; charset=utf8', '', '');
             self::$_instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         return self::$_instance;

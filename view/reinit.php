@@ -1,5 +1,5 @@
 <?php $title = "Jonathan et Marie: Réinitialisation Mot de Passe";
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/User.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/User.php');
 
 ob_start(); ?>
     <?php if ($user instanceof User) { ?>
@@ -20,4 +20,4 @@ ob_start(); ?>
     <?php } ?>
  
 <?php $contain = ob_get_clean();
-require($_SERVER['DOCUMENT_ROOT'].'/mariage/view/common/template.php'); ?>
+require($_SERVER['DOCUMENT_ROOT'].'/view/common/template.php'); ?>

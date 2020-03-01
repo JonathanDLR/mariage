@@ -1,5 +1,5 @@
 <?php $title="Jonathan & Marie: Inscription";
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/Inscription.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/Inscription.php');
 ob_start(); ?>
     <section>
         <article>
@@ -81,7 +81,7 @@ ob_start(); ?>
                     </div>
                     <?php if (!$_SESSION['loge']) { ?>
                         <div>
-                        <label for="logement">Gite ou Hotel?</label>
+                        <label for="logement">Vous souhaitez loger en gite ou hôtel?</label>
                         <select id="logement" name="logement">
                             <option value=1
                                     <?php if ($inscription instanceof Inscription) {
@@ -135,4 +135,4 @@ ob_start(); ?>
 
     </section>
 <?php $contain = ob_get_clean();
-require($_SERVER['DOCUMENT_ROOT'].'/mariage/view/common/template.php'); ?>
+require($_SERVER['DOCUMENT_ROOT'].'/view/common/template.php'); ?>

@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/controller/AbstractController.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/Inscription.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/User.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/AbstractController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/Inscription.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/User.php');
 
 /**
  * Inscription Controller

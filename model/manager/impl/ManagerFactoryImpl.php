@@ -1,8 +1,8 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/manager/contract/ManagerFactory.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/manager/impl/UserManagerImpl.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/manager/impl/InscriptionManagerImpl.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/impl/DaoFactoryImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/manager/contract/ManagerFactory.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/manager/impl/UserManagerImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/manager/impl/InscriptionManagerImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/impl/DaoFactoryImpl.php');
 
 /**
  * Factory of the managers entity

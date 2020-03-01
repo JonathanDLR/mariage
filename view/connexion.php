@@ -20,4 +20,4 @@ ob_start(); ?>
             <a href="forgotpswd">Mot de passe oublié</a>
     </article>
 <?php $contain = ob_get_clean();
-require($_SERVER['DOCUMENT_ROOT'].'/mariage/view/common/template.php'); ?>
+require($_SERVER['DOCUMENT_ROOT'].'/view/common/template.php'); ?>

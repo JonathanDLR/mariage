@@ -5,7 +5,7 @@ ob_start();
 
         <?php if (($_SESSION['type'] == "both") || ($_SESSION['type'] == "laique")) { ?>
             <article id="prieure">
-                <h2>Lieu de la Cérémonie Laique</h2>
+                <h2>Cérémonie Laique et Réception</h2>
                 <div>
                     <div><img src="web/img/prieure.jpg" alt="prieure" /></div>
 
@@ -41,7 +41,7 @@ ob_start();
         <?php } ?>
         <?php if (($_SESSION['type'] == "both") || ($_SESSION['type'] == "civil")) { ?>
             <article id="mairie">
-                <h2>Lieu de la Cérémonie Civile</h2>
+                <h2>LCérémonie Civile</h2>
                 <div>
                     <p>Vous êtes conviés le samedi 22 août 2020 à partir de 10h30 à la mairie de Cruas <br/>
                     Place René Cassin, 07350 Cruas.</p>
@@ -49,6 +49,9 @@ ob_start();
                     <div>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90824.51505412822!2d4.71365361723687!3d44.65291480155687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b540e09afbdfcd%3A0xd35ee713f7f5287d!2sPlace%20Ren%C3%A9%20Cassin%2C%2007350%20Cruas!5e0!3m2!1sfr!2sfr!4v1577037564229!5m2!1sfr!2sfr" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                     </div>
+
+                    <p>Le vin d'honneur se déroulera chez M. Paul Mesclon<br/>
+                    49 Avenue Marcel Paul, 07350 Cruas.</p>
             </div>
             <div>
                 <h3>Programme de la Journée</h3>
@@ -58,4 +61,4 @@ ob_start();
         <?php } ?>
     </section>
 <?php $contain = ob_get_clean();
-require($_SERVER['DOCUMENT_ROOT'].'/mariage/view/common/template.php'); ?>
+require($_SERVER['DOCUMENT_ROOT'].'/view/common/template.php'); ?>

@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/impl/AbstractDaoImpl.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/dao/contract/UserDao.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/mariage/model/entity/User.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/impl/AbstractDaoImpl.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/dao/contract/UserDao.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/User.php');
 
 /**
  * Interact with user table
