@@ -17,7 +17,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/controller/AbstractController.php');
         if(isset($_SESSION["nom"])) {
           session_start();
           session_destroy();
-          header('Location: /mariage');
+          header('Location: /');
         } else {
             //echo "Vous n'etes pas connecté!";
             include('view/connexion.php');
@@ -38,7 +38,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/controller/AbstractController.php');
       
             if (empty($login)) { // SI LOGIN VIDE ON RENVOI VERS LA PAGE ERREUR
               echo 'Veuillez renseigner votre login!';
-              header("refresh:2; /mariage");
+              header("refresh:2; /");
               return;
             }
       
@@ -52,14 +52,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/controller/AbstractController.php');
       
             if (empty($password)) { // SI MDP VIDE ON RENVOI VERS LA PAGE ERREUR
               echo 'Veuillez renseigner votre mot de passe!';
-              header("refresh:2; /mariage");
+              header("refresh:2; /");
               return;
             }
       
             else {
               if (!password_verify($password, $hashPassword)) { // SI MDP ERRONE ON RENVOI VERS LA PAGE ERREUR
                 echo 'Mot de passe invalide!';
-                header("refresh:2; /mariage");
+                header("refresh:2; /");
                 return;
               }
             }
