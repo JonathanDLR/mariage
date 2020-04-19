@@ -2,18 +2,22 @@
 ob_start(); ?>
     <section>
         <article>
-            <h1>Bonjour <?php echo ucfirst($_SESSION['nom']); ?></h1>
+            <?php if ($_SESSION['type'] != "civil") { ?>
+                <div id="DIVcarte"><img src="web/img/carte_ok.png" alt="carte"/></div>
+            <?php } else { ?>
+                <div id="DIVcarte"><img src="web/img/carte_civil.png" alt="carte"/></div> 
+            <?php } ?>
+            <h1>Bienvenue <?php echo ucfirst($_SESSION['nom']); ?></h1>
 
             <p>
-                Bienvenue sur le site de notre mariage!<br/><br/>
-                Vous y trouverez les formulaires pour valider votre participation
-                ainsi que toutes les informations utiles<br/>
-                sur les logements et les cérémonies.<br/><br/>
-                N'hésitez pas à nous contacter si vous avez la moindre question:<br/><br/>
-                Marie: 06 . 32 . 37 . 96 . 84<br/>
-                Jonathan: 06 . 31 . 59 . 60 . 72<br/><br/>
-                Nous espérons vous compter parmi nous.<br/>
-                Bonne navigation!
+                Nous espérons vous compter parmi nous!<br/>
+                Vous trouverez sur ce site toutes les informations utiles sur notre mariage ainsi que le
+                formulaire pour valider votre participation.<br/><br/>
+                Pour toutes vos questions:<br/><br/>
+                <span id="tel">
+                    <span id="telM"><span class="nomtel">Marie</span>: 06 32 37 96 84</span>
+                    <span id="telJ"><span class="nomtel">Jonathan</span>: 06 31 59 60 72</span>
+                </span>
             </p>
         </article>
     </section>

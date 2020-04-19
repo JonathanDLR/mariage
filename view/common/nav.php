@@ -2,7 +2,7 @@
     <div>
         <a href="accueil">Accueil</a>
         <?php if ($_SESSION) { ?>
-            <a href="informations">Informations</a>
+            <a href="ceremonies">Cérémonies</a>
             <?php if (($_SESSION['type'] != "civil") && (!$_SESSION['loge'])) { ?>
                 <a href="hebergements">Hébergements</a>
             <?php } ?>
@@ -22,7 +22,7 @@
 <?php if ($_SESSION) { ?>
     <div id="DIVpopMenu">
         <div>
-            <a href="informations">Informations</a>
+            <a href="ceremonies">Cérémonies</a>
         </div>
         <div>
             <?php if (($_SESSION['type'] != "civil") && (!$_SESSION['loge'])) { ?>

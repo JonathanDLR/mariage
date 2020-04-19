@@ -18,7 +18,6 @@ class InscriptionController extends AbstractController {
                 return $inscription;
             }          
         } else {
-            echo "Vous n'etes pas connecté!";
             include('view/connexion.php');
         }
     }

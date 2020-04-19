@@ -1,19 +1,29 @@
 @import 'template';
 
-/* ACCUEIL STYLE */
 html {
     background-size: cover;
+
+    @media screen and (max-height: 420px) {
+        background-size: contain;
+        background-position: bottom; 
+    }
 }
 
 body {
-    min-height: 100vh;
+    @media screen and (min-width: 825px) {
+        height: 100vh;     
+    }
 }
 
 .container {
-    height: 56vh;
+    height: 60vh;
+
+    @media screen and (min-width: 825px) {
+        height: 60vh;     
+    }
 
     @media screen and (max-height: 420px) {
-        height: 70vh;
+        height: inherit;
     }
 }
 
@@ -22,13 +32,91 @@ section {
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    height:63.5vh;
+    width: 100%;
 
     h1 {
         text-align: center;
+        font-family: titre;
+        font-size: 2.25em;
+        //margin-block-start: 0;
+        margin-block-end: 0;
+
+        @media screen and (max-height: 420px) {
+            margin-block-start: 0;
+        }
+
+        @media screen and (max-width: 1024px) and (min-width: 768px) {
+            margin-block-start: 0;
+        }
     }
 
     p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        width: 75%;
+        margin-block-end: 0;
+
+        #tel {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            @media screen and (min-width: 825px) {
+                flex-direction: row;     
+            }
+
+            @media screen and (max-height: 420px) {
+                flex-direction: row;
+            }
+        }
+
+        #telM {
+            justify-self: left;
+        }
+
+        #telJ {
+            justify-self: right;
+        }
+
+        .nomtel {
+            font-family: titre;
+            font-size: 2em;
+        }
+    }
+
+    article {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#DIVcarte {
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: 825px) {
+        margin-bottom: 2vh;     
+    }
+
+    @media screen and (max-height: 420px) {
+        margin-top: 4vh;
+        margin-bottom: 12vh;  
+    }
+
+    img {
+        height: 20vh;
+
+        @media screen and (min-width: 825px) {
+            height: 35vh;     
+        }
+
+        @media screen and (max-height: 420px) {
+            height: 50vh;
+        }
     }
 }

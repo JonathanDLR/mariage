@@ -8,7 +8,7 @@
     case "Jonathan & Marie: Accueil": ?>
         <link rel="stylesheet" href="web/css/accueil.css">
         <?php break;
-    case "Jonathan & Marie: Informations": ?>
+    case "Jonathan & Marie: Cérémonies": ?>
         <link rel="stylesheet" href="web/css/informations.css">
         <?php break;
     case "Jonathan & Marie: Hébergements": ?>

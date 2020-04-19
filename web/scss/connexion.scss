@@ -29,17 +29,25 @@ form {
         grid-template-columns: [col1] 45% [col2] 55%;
 
         label {
-            @media screen and (min-width: 825px) {
+            @media screen and (min-width: 1200px) {
                 margin-left: 20vh;    
-            }           
+            }   
+
+            @media screen and (min-width: 1300px) {
+                margin-left: 25vh;    
+            }   
+            
+            @media screen and (min-width: 1500px) {
+                margin-left: 30vh;    
+            }  
         }
 
         input {
             justify-self: center;
         }
 
-        span {
-            justify-self: end;
+        label {
+            justify-self: center;
         }
 
         span {
@@ -51,7 +59,23 @@ form {
             grid-column: 2;
             height: 3vh;
             width: 40%;
-            margin-left: 4%;
+
+            @media screen and (min-width: 1200px) {
+                margin-right: 20vh;    
+            }  
+            
+            @media screen and (min-width: 1300px) {
+                margin-right: 25vh;    
+            } 
+            
+            @media screen and (min-width: 1500px) {
+                margin-right: 30vh;    
+            }  
+
+
+            @media screen and (max-height: 420px) {
+                height: 6vh;
+            }
         }
     }
 
@@ -71,6 +95,10 @@ form {
         input {
             height: 4vh;
             width: 20vw;
+
+            @media screen and (max-height: 420px) {
+                height: 6vh;
+            }
         }
     }
 }
@@ -82,4 +110,6 @@ form {
 article {
     display: flex;
     justify-content: center;
+    height: 8vh;
 }
+

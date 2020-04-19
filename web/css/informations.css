@@ -16,6 +16,30 @@ html {
   font-family: "titre";
   src: url("../font/boshela.ttf");
 }
+h1, h2 {
+  font-family: titre;
+  font-size: 2.5em;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  font-family: titre;
+  font-size: 2.5em;
+  font-weight: normal;
+  color: #607E86;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+  font-family: titre;
+  font-size: 2.2em;
+  font-weight: normal;
+  color: black;
+  margin-block-end: 0;
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -29,7 +53,7 @@ nav a, #DIVpopMenu a {
   text-decoration: none;
   font-family: titre;
   font-size: 2.5em;
-  color: #218470;
+  color: #607E86;
 }
 nav a:hover, #DIVpopMenu a:hover {
   font-size: 3em;
@@ -104,6 +128,7 @@ p, li {
 
 input[type=checkbox]:hover, input[type=submit]:hover, select {
   cursor: pointer;
+  color: #218470;
 }
 
 input, select {
@@ -115,7 +140,11 @@ input, select {
 input:focus, select:focus {
   text-decoration: underline;
   outline: none;
-  color: #218470;
+  color: #607E86;
+}
+
+a {
+  color: #607E86;
 }
 
 /* FOOTER */
@@ -145,14 +174,6 @@ section {
   align-items: center;
 }
 
-#prieure > div h3, #mairie > div h3 {
-  display: flex;
-  justify-content: center;
-  font-family: titre;
-  font-size: 3em;
-  font-weight: normal;
-}
-
 #prieure div, #mairie div {
   display: flex;
   flex-direction: column;
@@ -175,13 +196,36 @@ section {
   width: 60%;
   margin: 0;
 }
+@media screen and (min-width: 1220px) {
+  #prieure div div img, #mairie div div img {
+    width: 50%;
+  }
+}
 #prieure div div .timeline, #mairie div div .timeline {
   width: 60%;
+}
+@media screen and (min-width: 1220px) {
+  #prieure div div .timeline, #mairie div div .timeline {
+    width: 50%;
+  }
+}
+#prieure div div #priext, #mairie div div #priext {
+  margin-bottom: 2em;
+}
+
+#ornement {
+  width: 30%;
+  height: auto;
 }
 
 iframe {
   height: 30vh;
   width: 60%;
+}
+@media screen and (min-width: 1220px) {
+  iframe {
+    width: 50%;
+  }
 }
 @media screen and (min-width: 1024px) {
   iframe {
@@ -192,6 +236,35 @@ iframe {
   iframe {
     height: 40vh;
   }
+}
+
+.date {
+  margin-block-end: 0;
+}
+
+#dateP {
+  color: #a172a7;
+  font-size: 3em;
+}
+
+#dateM {
+  color: #607E86;
+}
+
+.cere {
+  margin-block-start: 0.5em;
+}
+
+.pGene {
+  width: 60%;
+}
+
+#hLend {
+  margin-block-end: 0.75em;
+}
+
+#pLend {
+  margin-block-start: 0;
 }
 
 /*# sourceMappingURL=informations.css.map */

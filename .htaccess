@@ -2,7 +2,7 @@ Options +FollowSymLinks -MultiViews
 RewriteEngine On
 
 RewriteRule ^accueil$ index.php?action=accueil [L]
-RewriteRule ^informations$ index.php?action=informations [L]
+RewriteRule ^ceremonies$ index.php?action=informations [L]
 RewriteRule ^hebergements$ index.php?action=hebergements [L]
 RewriteRule ^inscription$ index.php?action=inscription [L]
 RewriteRule ^deco$ index.php?action=deco [L]

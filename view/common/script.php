@@ -6,7 +6,7 @@
         case "Jonathan & Marie: Accueil": ?>
             <script src="web/js/popupmenu.js"></script>
             <?php break;
-        case "Jonathan & Marie: Informations": ?>
+        case "Jonathan & Marie: Cérémonies": ?>
             <script src="web/js/popupmenu.js"></script>
             <?php break;
         case "Jonathan & Marie: Hébergements": ?>

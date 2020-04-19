@@ -16,6 +16,30 @@ html {
   font-family: "titre";
   src: url("../font/boshela.ttf");
 }
+h1, h2 {
+  font-family: titre;
+  font-size: 2.5em;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  font-family: titre;
+  font-size: 2.5em;
+  font-weight: normal;
+  color: #607E86;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+  font-family: titre;
+  font-size: 2.2em;
+  font-weight: normal;
+  color: black;
+  margin-block-end: 0;
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -29,7 +53,7 @@ nav a, #DIVpopMenu a {
   text-decoration: none;
   font-family: titre;
   font-size: 2.5em;
-  color: #218470;
+  color: #607E86;
 }
 nav a:hover, #DIVpopMenu a:hover {
   font-size: 3em;
@@ -104,6 +128,7 @@ p, li {
 
 input[type=checkbox]:hover, input[type=submit]:hover, select {
   cursor: pointer;
+  color: #218470;
 }
 
 input, select {
@@ -115,7 +140,11 @@ input, select {
 input:focus, select:focus {
   text-decoration: underline;
   outline: none;
-  color: #218470;
+  color: #607E86;
+}
+
+a {
+  color: #607E86;
 }
 
 /* FOOTER */
@@ -154,16 +183,26 @@ form div:not(:nth-child(3)) {
   align-items: center;
   grid-template-columns: [col1] 45% [col2] 55%;
 }
-@media screen and (min-width: 825px) {
+@media screen and (min-width: 1200px) {
   form div:not(:nth-child(3)) label {
     margin-left: 20vh;
+  }
+}
+@media screen and (min-width: 1300px) {
+  form div:not(:nth-child(3)) label {
+    margin-left: 25vh;
+  }
+}
+@media screen and (min-width: 1500px) {
+  form div:not(:nth-child(3)) label {
+    margin-left: 30vh;
   }
 }
 form div:not(:nth-child(3)) input {
   justify-self: center;
 }
-form div:not(:nth-child(3)) span {
-  justify-self: end;
+form div:not(:nth-child(3)) label {
+  justify-self: center;
 }
 form div:not(:nth-child(3)) span {
   grid-column: 1;
@@ -173,7 +212,26 @@ form div:not(:nth-child(3)) input {
   grid-column: 2;
   height: 3vh;
   width: 40%;
-  margin-left: 4%;
+}
+@media screen and (min-width: 1200px) {
+  form div:not(:nth-child(3)) input {
+    margin-right: 20vh;
+  }
+}
+@media screen and (min-width: 1300px) {
+  form div:not(:nth-child(3)) input {
+    margin-right: 25vh;
+  }
+}
+@media screen and (min-width: 1500px) {
+  form div:not(:nth-child(3)) input {
+    margin-right: 30vh;
+  }
+}
+@media screen and (max-height: 420px) {
+  form div:not(:nth-child(3)) input {
+    height: 6vh;
+  }
 }
 form div:nth-child(1) {
   grid-row: 1;
@@ -190,6 +248,11 @@ form div:nth-child(3) input {
   height: 4vh;
   width: 20vw;
 }
+@media screen and (max-height: 420px) {
+  form div:nth-child(3) input {
+    height: 6vh;
+  }
+}
 
 #formOk {
   height: 6vh;
@@ -198,6 +261,7 @@ form div:nth-child(3) input {
 article {
   display: flex;
   justify-content: center;
+  height: 8vh;
 }
 
 /*# sourceMappingURL=connexion.css.map */

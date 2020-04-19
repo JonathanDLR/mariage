@@ -20,16 +20,6 @@ section {
     align-items: center;
 }
 
-#prieure > div h3, #mairie > div h3 {
-    display: flex;
-    justify-content: center;
-    font-family: titre;
-    font-size: 3em;
-    font-weight: normal;
-}
-
-
-
 #prieure, #mairie {
     div {
         display: flex;
@@ -53,18 +43,39 @@ section {
                 height: auto;
                 width: 60%;
                 margin: 0;
+
+                @media screen and (min-width: 1220px) {
+                    width: 50%;     
+                }
             }
         
             .timeline {
                 width: 60%;
+
+                @media screen and (min-width: 1220px) {
+                    width: 50%;     
+                }
             }
+
+            #priext {
+                margin-bottom: 2em;
+            }   
         }      
     }  
+}
+
+#ornement {
+    width: 30%;
+    height: auto;
 }
 
 iframe {
     height: 30vh;
     width: 60%;  
+
+    @media screen and (min-width: 1220px) {
+        width: 50%;     
+    }
 
     @media screen and (min-width: 1024px) {
         height: 40vh;
@@ -72,4 +83,33 @@ iframe {
     @media screen and (max-height: 420px) {
         height: 40vh;
     }
+}
+
+.date {
+    margin-block-end: 0;
+}
+
+#dateP {
+    color: #a172a7;
+    font-size: 3em;
+}
+
+#dateM {
+    color: #607E86;
+}
+
+.cere {
+    margin-block-start: 0.5em;
+}
+
+.pGene {
+    width: 60%;
+}
+
+#hLend {
+    margin-block-end: 0.75em;
+}
+
+#pLend {
+    margin-block-start: 0;
 }
