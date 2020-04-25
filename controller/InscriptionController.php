@@ -1,6 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/controller/AbstractController.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/Inscription.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'//model/entity/Inscription.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/model/entity/User.php');
 
 /**
@@ -50,33 +50,59 @@ class InscriptionController extends AbstractController {
                     }                   
                     $allergie = htmlspecialchars($_POST["allergie"]);
                     $civil = htmlspecialchars($_POST["civil"]);
-                    $logement = htmlspecialchars($_POST["logement"]);
-                    if ($civil == "true") {
-                        $invit = 3;
-                    } else {
-                        $invit = 1;
-                    }
+                    
                     $lendemainString = htmlspecialchars($_POST["lendemain"]);
                     if ($lendemainString == "true") {
                         $lendemain = TRUE;
                     } else {
                         $lendemain = FALSE;
                     }
+                    
+                    
+                    $logemariString = htmlspecialchars($_POST["logemari"]);
+
+                    if ($logemariString == "true") {
+                        $logemari = TRUE;                       
+
+                        $logement = htmlspecialchars($_POST["logement"]);
+                        if ($civil == "true") {
+                            $invit = 3;
+                        } else {
+                            $invit = 1;
+                        }
+
+                        if ($logement == "1") {
+                            $gite = htmlspecialchars($_POST["gite"]);
+                        } else {
+                            $gite = 5; // 5 correspond à pas de gite
+                        }
+
+                        $nuit = htmlspecialchars($_POST["nuit"]);
+                    } else {
+                        $logemari = FALSE;
+                        $logement = NULL;
+                        $nuit = 0;
+                        $gite = 5; // 5 correspond à pas de gite
+                    }
+
                     // CREATING INSCRIPTION
                     $newInscription = self::getManagerFactory()->getInscriptionManager()->createInscription(
-                        $_SESSION["id"], $nbre, $invit, $vegan, $nbreVegan, $allergie, $logement, $lendemain
+                        $_SESSION["id"], $nbre, $invit, $vegan, $nbreVegan, $allergie, $logement, $lendemain,
+                        $nuit, $gite, $logemari
                     );
                 } else {
                     $newInscription = self::getManagerFactory()->getInscriptionManager()->createInscription(
                         $_SESSION["id"], $nbre, $invit
                     );
                 }
+
                 // CREATING OR UPDATE IN DB
                 if ($inscription instanceof Inscription) {
                    $response = self::getManagerFactory()->getInscriptionManager()->updateInscription($newInscription);
                 } else {
                     $response = self::getManagerFactory()->getInscriptionManager()->sendInscription($newInscription);
                 }
+
                 // IF PRESENCE NOT CHECKED, DELETING OR SENDING ERROR MSG
             } else {
                 if ($inscription instanceof Inscription) {

@@ -126,7 +126,7 @@ p, li {
   font-family: Garamond, serif;
 }
 
-input[type=checkbox]:hover, input[type=submit]:hover, select {
+input[type=checkbox]:hover, input[type=submit]:hover, select:hover {
   cursor: pointer;
   color: #218470;
 }
@@ -173,7 +173,7 @@ section article {
 
 #formIns {
   display: grid;
-  grid-template-rows: [row1] 12.5% [row2] 12.5% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5% [row8] 12.5%;
+  grid-template-rows: [row1] 9% [row2] 9% [row3] 9% [row4] 9% [row5] 9% [row6] 9% [row7] 9% [row8] 9% [row9] 9% [row10] 9% [row11] 9%;
   grid-template-columns: 100%;
   flex-direction: column;
   justify-content: space-around;
@@ -191,23 +191,23 @@ section article {
     height: 110vh;
   }
 }
-#formIns div:not(:nth-child(3)):not(:nth-child(8)) {
+#formIns div:not(:nth-child(3)):not(:nth-child(11)) {
   display: grid;
   align-items: center;
   grid-template-columns: [col1] 45% [col2] 55%;
 }
-#formIns div:not(:nth-child(3)):not(:nth-child(8)) label {
+#formIns div:not(:nth-child(3)):not(:nth-child(11)) label {
   justify-self: start;
   grid-column: 1;
   line-height: 1.75em;
   margin-left: 2%;
 }
 @media screen and (min-width: 825px) {
-  #formIns div:not(:nth-child(3)):not(:nth-child(8)) label {
+  #formIns div:not(:nth-child(3)):not(:nth-child(11)) label {
     margin-left: 40%;
   }
 }
-#formIns div:not(:nth-child(3)):not(:nth-child(8)) input, #formIns div:not(:nth-child(3)):not(:nth-child(8)) select {
+#formIns div:not(:nth-child(3)):not(:nth-child(11)) input, #formIns div:not(:nth-child(3)):not(:nth-child(11)) select {
   justify-self: center;
   grid-column: 2;
   height: 3vh;
@@ -215,28 +215,28 @@ section article {
   margin-left: 4%;
 }
 @media screen and (min-width: 825px) {
-  #formIns div:not(:nth-child(3)):not(:nth-child(8)) input, #formIns div:not(:nth-child(3)):not(:nth-child(8)) select {
+  #formIns div:not(:nth-child(3)):not(:nth-child(11)) input, #formIns div:not(:nth-child(3)):not(:nth-child(11)) select {
     width: 40%;
   }
 }
 @media screen and (max-height: 420px) {
-  #formIns div:not(:nth-child(3)):not(:nth-child(8)) input, #formIns div:not(:nth-child(3)):not(:nth-child(8)) select {
+  #formIns div:not(:nth-child(3)):not(:nth-child(11)) input, #formIns div:not(:nth-child(3)):not(:nth-child(11)) select {
     height: 6vh;
     width: 60%;
   }
 }
-#formIns div:not(:nth-child(3)):not(:nth-child(8)) input[type=checkbox] {
+#formIns div:not(:nth-child(3)):not(:nth-child(11)) input[type=checkbox] {
   justify-self: center;
   width: 10%;
   margin-left: 2%;
 }
 @media screen and (min-width: 1024px) {
-  #formIns div:not(:nth-child(3)):not(:nth-child(8)) input[type=checkbox] {
+  #formIns div:not(:nth-child(3)):not(:nth-child(11)) input[type=checkbox] {
     margin-left: 0;
   }
 }
 @media screen and (max-height: 420px) {
-  #formIns div:not(:nth-child(3)):not(:nth-child(8)) input[type=checkbox] {
+  #formIns div:not(:nth-child(3)):not(:nth-child(11)) input[type=checkbox] {
     margin-left: 0;
   }
 }
@@ -349,15 +349,24 @@ section article {
 }
 #formIns div:nth-child(8) {
   grid-row: 8;
+}
+#formIns div:nth-child(9) {
+  grid-row: 9;
+}
+#formIns div:nth-child(10) {
+  grid-row: 10;
+}
+#formIns div:nth-child(11) {
+  grid-row: 11;
   display: flex;
   justify-content: center;
 }
-#formIns div:nth-child(8) input {
+#formIns div:nth-child(11) input {
   height: 4vh;
   width: 20vw;
 }
 @media screen and (max-height: 420px) {
-  #formIns div:nth-child(8) input {
+  #formIns div:nth-child(11) input {
     height: 6vh;
   }
 }

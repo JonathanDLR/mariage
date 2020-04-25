@@ -10,6 +10,9 @@ class Inscription {
     private $_logement;
     private $_invit;
     private $_lendemain;
+    private $_nuit;
+    private $_gite;
+    private $_logemari;
 
     // GETTERS
     
@@ -49,6 +52,18 @@ class Inscription {
         return $this->_lendemain;
     }
 
+    public function getNuit() {
+        return $this->_nuit;
+    }
+
+    public function getGite() {
+        return $this->_gite;
+    }
+
+    public function getLogemari() {
+        return $this->_logemari;
+    }
+
     // SETTERS
 
     public function setId($pId) {
@@ -85,6 +100,18 @@ class Inscription {
 
     public function setLendemain($pLendemain) {
         $this->_lendemain = $pLendemain;
+    }
+
+    public function setNuit($pNuit) {
+        $this->_nuit = $pNuit;
+    }
+
+    public function setGite($pGite) {
+        $this->_gite = $pGite;
+    }
+
+    public function setLogemari($pLogemari) {
+        $this->_logemari = $pLogemari;
     }
 }
 

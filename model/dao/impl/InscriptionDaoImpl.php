@@ -14,8 +14,9 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
   public function getInscriptionDb($loginId) {
     try {
       $connection = self::getDaoFactory()->getConnection();
-      $req = $connection->prepare('SELECT inscription.id, login_id, nbre_participant, vegan, nbre_repas_vegan, allergie,type_logement,
-        type_invit, repas_lendemain FROM inscription WHERE login_id = :loginId');
+      $req = $connection->prepare('SELECT inscription.id, login_id, nbre_participant, vegan, nbre_repas_vegan,
+        allergie,type_logement, type_invit, repas_lendemain, nuit, type_gite, logemari FROM inscription WHERE
+        login_id = :loginId');
       $req->bindParam(':loginId', $loginId, PDO::PARAM_INT);
       $req->execute();
   
@@ -34,8 +35,9 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
       try {
         $connection = self::getDaoFactory()->getConnection();
         $req = $connection->prepare('INSERT into inscription (login_id, nbre_participant, vegan, nbre_repas_vegan,
-            allergie, type_logement, type_invit, repas_lendemain) VALUES (:loginId, :nbreParticipant, :vegan, :nbreRepasVegan,
-            :allergie, :typeLogement, :typeInvit, :repasLendemain)');
+            allergie, type_logement, type_invit, repas_lendemain, nuit, type_gite, logemari) VALUES (:loginId,
+            :nbreParticipant, :vegan, :nbreRepasVegan, :allergie, :typeLogement, :typeInvit, :repasLendemain,
+            :nuit, :typeGite, :logemari)');
         $req->bindValue(':loginId', $pInscription->getLogin(), PDO::PARAM_INT);
         $req->bindValue(':nbreParticipant', $pInscription->getNbre(), PDO::PARAM_INT);
         $req->bindValue(':vegan', $pInscription->getVegan(), PDO::PARAM_BOOL);
@@ -44,6 +46,9 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
         $req->bindValue(':typeLogement', $pInscription->getLogement(), PDO::PARAM_INT);
         $req->bindValue(':typeInvit', $pInscription->getInvit(), PDO::PARAM_INT);
         $req->bindValue(':repasLendemain', $pInscription->getLendemain(), PDO::PARAM_BOOL);
+        $req->bindValue(':nuit', $pInscription->getNuit(), PDO::PARAM_INT);
+        $req->bindValue(':typeGite', $pInscription->getGite(), PDO::PARAM_INT);
+        $req->bindValue(':logemari', $pInscription->getLogemari(), PDO::PARAM_BOOL);
 
         $req->execute();
 
@@ -63,7 +68,8 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
         $connection = self::getDaoFactory()->getConnection();
         $req = $connection->prepare('UPDATE inscription SET nbre_participant = :nbreParticipant, vegan = :vegan,
           nbre_repas_vegan = :nbreRepasVegan, allergie = :allergie, type_logement = :typeLogement, 
-          type_invit = :typeInvit, repas_lendemain = :repasLendemain WHERE login_id = :loginId');
+          type_invit = :typeInvit, repas_lendemain = :repasLendemain, nuit = :nuit, type_gite = :typeGite, logemari =
+          :logemari WHERE login_id = :loginId');
         $req->bindValue(':nbreParticipant', $pInscription->getNbre(), PDO::PARAM_INT);
         $req->bindValue(':vegan', $pInscription->getVegan(), PDO::PARAM_BOOL);
         $req->bindValue(':nbreRepasVegan', $pInscription->getNbreVegan(), PDO::PARAM_INT);
@@ -72,6 +78,9 @@ class InscriptionDaoImpl extends AbstractDaoImpl implements InscriptionDao {
         $req->bindValue(':typeInvit', $pInscription->getInvit(), PDO::PARAM_INT);
         $req->bindValue(':repasLendemain', $pInscription->getLendemain(), PDO::PARAM_BOOL);
         $req->bindValue(':loginId', $pInscription->getLogin(), PDO::PARAM_INT);
+        $req->bindValue(':nuit', $pInscription->getNuit(), PDO::PARAM_INT);
+        $req->bindValue(':typeGite', $pInscription->getGite(), PDO::PARAM_INT);
+        $req->bindValue(':logemari', $pInscription->getLogemari(), PDO::PARAM_BOOL);
         $req->execute();
 
         $response = "Votre inscription a bien été modifiée!";

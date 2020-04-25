@@ -20,8 +20,8 @@ section {
 
 #formIns {
     display: grid;
-    grid-template-rows: [row1] 12.5% [row2] 12.5% [row3] 12.5% [row4] 12.5% [row5] 12.5% [row6] 12.5% [row7] 12.5%
-        [row8] 12.5%;
+    grid-template-rows: [row1] 9% [row2] 9% [row3] 9% [row4] 9% [row5] 9% [row6] 9% [row7] 9% [row8] 9% [row9] 9% 
+    [row10] 9% [row11] 9%; 
     grid-template-columns: 100%;
     flex-direction: column;
     justify-content: space-around;
@@ -36,7 +36,7 @@ section {
         height: 110vh;
     }
 
-    div:not(:nth-child(3)):not(:nth-child(8)) {
+    div:not(:nth-child(3)):not(:nth-child(11)) {
         display: grid;
         align-items: center;
         grid-template-columns: [col1] 45% [col2] 55%;
@@ -196,6 +196,18 @@ section {
 
     div:nth-child(8) {
         grid-row: 8;
+    }
+
+    div:nth-child(9) {
+        grid-row: 9;
+    }
+
+    div:nth-child(10) {
+        grid-row: 10;
+    }
+
+    div:nth-child(11) {
+        grid-row: 11;
         display: flex;
         justify-content: center;
 

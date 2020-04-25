@@ -80,25 +80,74 @@ ob_start(); ?>
                                } ?> />
                     </div>
                     <?php if (!$_SESSION['loge']) { ?>
-                        <div>
-                        <label for="logement">Vous souhaitez loger en gite ou hôtel?</label>
-                        <select id="logement" name="logement">
-                            <option value=1
+                        <div id="DIVlogemari">
+                            <label for="logemari">Vous souhaitez bénéficier des logements réservés par les mariés</label>
+                            <input type="checkbox"
+                                   id="logemari"
+                                   name="logemari"
+                                   <?php if ($inscription instanceof Inscription) {
+                                       if ($inscription->getLogemari() == "1") {
+                                           echo "checked";
+                                       }
+                                   } ?> />
+                        </div>
+                        <div id="DIVnuit">
+                            <label for="nuit">Je souhaite bénéficier d'un logement pour:</label>
+                            <select id="nuit" name="nuit">
+                                <option value=1
                                     <?php if ($inscription instanceof Inscription) {
-                                        if ($inscription->getLogement() == "1") {
+                                        if ($inscription->getNuit() == "1") {
                                             echo "selected";
                                         }
                                     } ?>
-                            >Gite</option>
-                            <option value=2
+                                >1 nuitée (du vendredi 18 au samedi 19 septembre)</option>
+                                <option value=2
                                     <?php if ($inscription instanceof Inscription) {
-                                        if ($inscription->getLogement() == "2") {
+                                        if ($inscription->getNuit() == "2") {
                                             echo "selected";
                                         }
                                     } ?>
-                                    >Hotel</option>
-                        </select>
-                    </div>
+                                    >2 nuitées (du vendredi 18 au dimanche 20 septembre)</option>
+                            </select>
+                        </div>
+                        <div id="DIVloge">
+                            <label for="logement">Vous souhaitez loger en gite ou hôtel?</label>
+                            <select id="logement" name="logement">
+                                <option value=1
+                                        <?php if ($inscription instanceof Inscription) {
+                                            if ($inscription->getLogement() == "1") {
+                                                echo "selected";
+                                            }
+                                        } ?>
+                                >Gite</option>
+                                <option value=2
+                                        <?php if ($inscription instanceof Inscription) {
+                                            if ($inscription->getLogement() == "2") {
+                                                echo "selected";
+                                            }
+                                        } ?>
+                                        >Hotel</option>
+                            </select>
+                        </div>
+                        <div id="DIVgite">
+                            <label for="gite">Préférence gite?</label>
+                            <select id="gite" name="gite">
+                                <option value=1
+                                        <?php if ($inscription instanceof Inscription) {
+                                            if($inscription->getGite() == "1") {
+                                                echo "selected";
+                                            }
+                                        } ?>
+                                    >Domaine de L'Étang</option>
+                                <option value=2
+                                        <?php if ($inscription instanceof Inscription) {
+                                            if($inscription->getGite() == "2") {
+                                                echo "selected";
+                                            }
+                                        } ?>
+                                    >Le Régisseur</option>
+                            </select>
+                        </div>
                     <?php } else { ?>
                         <div></div>
                     <?php }                    

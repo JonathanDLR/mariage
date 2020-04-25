@@ -126,7 +126,7 @@ p, li {
   font-family: Garamond, serif;
 }
 
-input[type=checkbox]:hover, input[type=submit]:hover, select {
+input[type=checkbox]:hover, input[type=submit]:hover, select:hover {
   cursor: pointer;
   color: #218470;
 }

@@ -4,6 +4,7 @@ VEGAN = {
     inputVeg: document.getElementById("nbreVegan"),
 
     init: function() {
+        VEGAN.show();
         VEGAN.checkboxVeg.addEventListener("change", VEGAN.show);
     },
 

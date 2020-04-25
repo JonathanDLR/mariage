@@ -37,7 +37,28 @@ INSCRIPTION = {
         } else {
             var lendemain = false;
         }
-        var logement = document.getElementById("logement").value;
+        
+        var checkboxLogemari = document.getElementById("logemari").checked;
+        if (checkboxLogemari == true) {
+            var logemari = true;
+        } else {
+            var logemari = false;
+        }
+        
+        if (logemari ==true) {            
+            var nuit = document.getElementById("nuit").value;
+            var logement = document.getElementById("logement").value;
+            if (logement == "1") {
+                var gite = document.getElementById("gite").value;
+            } else {
+                var gite = 5; // 5 correspond à pas de gite
+            }
+        } else {
+            var gite = 5; // 5 correspond à pas de gite
+            var nuit = 0;
+            var logement = null;
+        }
+        
         arrayChamp = ["nbre", "nbreVegan", "logement"];
 
         // CHECKING DATA
@@ -65,6 +86,9 @@ INSCRIPTION = {
             myForm.append("civil", civil);
             myForm.append("lendemain", lendemain);
             myForm.append("logement", logement);
+            myForm.append("logemari", logemari);
+            myForm.append("nuit", nuit);
+            myForm.append("gite", gite);
 
             // AJAX
             var xhr = new XMLHttpRequest();

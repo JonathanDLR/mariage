@@ -21,6 +21,9 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
             if ($inscriptionDao["vegan"] != null) {
                 $inscription->setVegan($inscriptionDao["vegan"]);
             }
+            if ($inscriptionDao["nbre_repas_vegan"] != null) {
+                $inscription->setNbreVegan($inscriptionDao["nbre_repas_vegan"]);
+            }
             if ($inscriptionDao["allergie"] != null) {
                 $inscription->setAllergie($inscriptionDao["allergie"]);
             }
@@ -32,6 +35,15 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
             }
             if ($inscriptionDao["repas_lendemain"] != null) {
                 $inscription->setLendemain($inscriptionDao["repas_lendemain"]);
+            }
+            if ($inscriptionDao["nuit"] != null) {
+                $inscription->setNuit($inscriptionDao["nuit"]);
+            }
+            if ($inscriptionDao["type_gite"] != null) {
+                $inscription->setGite($inscriptionDao["type_gite"]);
+            }
+            if ($inscriptionDao["logemari"] != null) {
+                $inscription->setLogemari($inscriptionDao["logemari"]);
             }
 
             $response = $inscription;
@@ -46,7 +58,7 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
      * Creating inscription
      */
     public function createInscription($loginId, $nbreParticipant, $invit, $vegan = NULL, $nbreVegan = NULL, 
-        $allergie = NULL, $logement = NULL, $lendemain = NULL) {
+        $allergie = NULL, $logement = NULL, $lendemain = NULL, $nuit = NULL, $gite = NULL, $logemari = NULL) {
             $inscription = new Inscription();
             $inscription->setLogin($loginId);
             $inscription->setNbre($nbreParticipant);
@@ -56,6 +68,9 @@ class InscriptionManagerImpl extends AbstractManagerImpl implements InscriptionM
             $inscription->setAllergie($allergie);
             $inscription->setLogement($logement);
             $inscription->setLendemain($lendemain);
+            $inscription->setNuit($nuit);
+            $inscription->setGite($gite);
+            $inscription->setLogemari($logemari);
 
             return $inscription;
     }
